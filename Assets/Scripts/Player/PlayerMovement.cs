@@ -3,24 +3,31 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     private float movementSpeed = 5;
 
-    Rigidbody2D rb2d;
+    private Rigidbody2D rb2d;
+
+    private Vector3 moveDirection;
 
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        rb2d.MovePosition((Vector3)rb2d.position + movementSpeed * Time.fixedDeltaTime * new Vector3(
+        moveDirection = new Vector3(
             Input.GetAxisRaw("Horizontal"),
             Input.GetAxisRaw("Vertical"),
             0
-        ).normalized);
+        ).normalized;
+    }
+
+    private void FixedUpdate()
+    {
+        rb2d.MovePosition((Vector3)rb2d.position + moveDirection * movementSpeed * Time.fixedDeltaTime);
     }
 }
