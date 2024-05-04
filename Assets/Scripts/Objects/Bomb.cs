@@ -12,6 +12,8 @@ public class Bomb : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("Bomb has been placed");
+
         Destroy(gameObject, lifetimeSeconds);
     }
 
