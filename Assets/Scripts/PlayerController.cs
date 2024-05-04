@@ -7,13 +7,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float movementSpeed = 5;
 
+    Rigidbody2D rb2d;
+
+    private void Start()
+    {
+        rb2d = GetComponent<Rigidbody2D>();
+    }
+
 
     private void FixedUpdate()
     {
-        transform.position += movementSpeed * Time.deltaTime * new Vector3(
+        rb2d.MovePosition((Vector3)rb2d.position + movementSpeed * Time.fixedDeltaTime * new Vector3(
             Input.GetAxisRaw("Horizontal"),
             Input.GetAxisRaw("Vertical"),
             0
-        ).normalized;
+        ).normalized);
     }
 }
