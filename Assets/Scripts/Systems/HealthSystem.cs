@@ -8,13 +8,7 @@ public class HealthSystem : MonoBehaviour
     [SerializeField]
     private float maxHealth = 1;
 
-    private float health;
-
-    public float Health
-    {
-        get => health;
-        set { health = ModifyLife(value); }
-    }
+    public float Health { get; private set; }
 
     public event Action<HealthSystem, float> OnHealedEvent;
     public event Action<HealthSystem, float> OnDamagedEvent;
@@ -22,12 +16,12 @@ public class HealthSystem : MonoBehaviour
 
     private void Awake()
     {
-        health = maxHealth;
+        Health = maxHealth;
     }
 
     public virtual float Heal(float value)
     {
-        var diff = ModifyLife(health + value);
+        var diff = ModifyLife(Health + value);
 
         if (diff == 0) return 0;
 
@@ -40,7 +34,7 @@ public class HealthSystem : MonoBehaviour
 
     public virtual float Damage(float value)
     {
-        var diff = ModifyLife(health - value);
+        var diff = ModifyLife(Health - value);
 
         if (diff == 0) return 0;
 
@@ -48,7 +42,7 @@ public class HealthSystem : MonoBehaviour
 
         Debug.Log($"[${gameObject.name}] Health value decreased by ${diff} points.");
 
-        if (health == 0)
+        if (Health == 0)
         {
             OnDiedEvent?.Invoke(this);
 
@@ -60,11 +54,11 @@ public class HealthSystem : MonoBehaviour
 
     private float ModifyLife(float value)
     {
-        value = Mathf.Clamp(health + value, 0, maxHealth);
+        value = Mathf.Clamp(Health + value, 0, maxHealth);
 
-        var diff = value - health;
+        var diff = value - Health;
 
-        health = value;
+        Health = value;
 
         return diff;
     }
