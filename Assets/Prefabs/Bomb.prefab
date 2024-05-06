@@ -189,8 +189,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad05ee8095db952458d7c7d2fe4ab87c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetimeSeconds: 2
+  bombLifetimeSeconds: 2
   physicsCollider: {fileID: 3705347106127617413}
-  playerLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
+  explosionPrefab: {fileID: 9174289498156516832, guid: 0040efaf339cbf34dae5356b744ee91e, type: 3}
+  explosionAllowedSprite: {fileID: 393196752, guid: e1637a7f8f233634f9fe225dffa8e295, type: 3}
+  explosionRadius: 3
+  explosionSpreadMs: 250

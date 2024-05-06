@@ -4,13 +4,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class PlayerBombPlacement: MonoBehaviour
+public partial class Player
 {
+    [Header("Bomb Placement")]
     [SerializeField]
-    private Tilemap levelTilemap;
-
-    [SerializeField]
-    private GameObject bombPrefab;
+    private Bomb bombPrefab;
 
     [SerializeField]
     private KeyCode placeBombKeycode;
@@ -20,7 +18,8 @@ public class PlayerBombPlacement: MonoBehaviour
 
     private float cooldownTimer = 0f;
 
-    private void Update()
+
+    private void BombPlacementUpdate()
     {
         if (cooldownTimer > 0)
         {
@@ -34,9 +33,11 @@ public class PlayerBombPlacement: MonoBehaviour
 
     private void PlaceBomb()
     {
-        var position = levelTilemap.CellToWorld(levelTilemap.WorldToCell(transform.position)) + new Vector3(0.5f, 0.5f);
+        var cellPosition = GameState.LevelTilemap.WorldToCell(transform.position);
+        var position = GameState.LevelTilemap.CellToWorld(cellPosition) + GameState.LevelTilemap.cellSize / 2;
 
-        Instantiate(bombPrefab, position, transform.rotation);
+        var bomb = Instantiate(bombPrefab, position, transform.rotation);
+        bomb.GameState = GameState;
 
         cooldownTimer = placeCooldown;
     }

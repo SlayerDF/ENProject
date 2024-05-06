@@ -6,6 +6,7 @@ public class Camera : MonoBehaviour
 {
     [SerializeField]
     private GameObject target;
+    public GameObject Target { get => target; set => target = value; }
 
     private Bounds cameraWorldBounds;
 

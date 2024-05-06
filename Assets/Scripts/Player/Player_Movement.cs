@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public partial class Player
 {
+    [Header("Movement")]
     [SerializeField]
     private float movementSpeed = 5;
 
@@ -11,12 +12,12 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 moveDirection;
 
-    private void Start()
+    private void MovementAwake()
     {
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void MovementUpdate()
     {
         moveDirection = new Vector3(
             Input.GetAxisRaw("Horizontal"),
@@ -25,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
         ).normalized;
     }
 
-    private void FixedUpdate()
+    private void MovementFixedUpdate()
     {
         rb2d.MovePosition((Vector3)rb2d.position + moveDirection * movementSpeed * Time.fixedDeltaTime);
     }
