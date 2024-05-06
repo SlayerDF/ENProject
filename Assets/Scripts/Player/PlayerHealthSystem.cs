@@ -5,36 +5,42 @@ public class PlayerHealthSystem : HealthSystem
 {
 
     [SerializeField, Range(1f, 10f)]
-    private float damageCooldown = 2f;
+    private float invulnerabilityPeriodSeconds = 2f;
 
-    private float damageCooldownExpiration = 0f;
+    private float invulnerabilityExpiresAt = 0f;
 
-    public event Action<HealthSystem> OnDamageCooldownStarted;
-    public event Action<HealthSystem> OnDamageCooldownEnded;
+    public event Action<HealthSystem> InvulnerabilityActivated;
+    public event Action<HealthSystem> InvulnerabilityDeactivated;
 
-    public bool DamageCooldownActive { get; private set; } = false;
+    public bool IsInvulnerabilityActive { get; private set; } = false;
 
     public void Update()
     {
-        if (DamageCooldownActive && Time.time > damageCooldownExpiration)
+        if (IsInvulnerabilityActive && Time.time > invulnerabilityExpiresAt)
         {
-            DamageCooldownActive = false;
+            IsInvulnerabilityActive = false;
 
-            OnDamageCooldownEnded?.Invoke(this);
+            InvulnerabilityDeactivated?.Invoke(this);
+
+            Debug.Log($"[{gameObject.name}] temporary invulnerability has ended.");
         }
     }
 
-    public override float Damage(float value)
+    public override int Damage(int value)
     {
-        if (Time.time < damageCooldownExpiration) return 0;
+        if (Time.time < invulnerabilityExpiresAt) return 0;
 
         var actualDamage = base.Damage(value);
 
         if (actualDamage > 0)
         {
-            damageCooldownExpiration = Time.time + damageCooldown;
+            invulnerabilityExpiresAt = Time.time + invulnerabilityPeriodSeconds;
 
-            OnDamageCooldownStarted?.Invoke(this);
+            IsInvulnerabilityActive = true;
+
+            InvulnerabilityActivated?.Invoke(this);
+
+            Debug.Log($"[{gameObject.name}] is temporarily invulnerable.");
         }
 
         return actualDamage;

@@ -16,4 +16,14 @@ public class Explosion : MonoBehaviour
     {
         Debug.Log("Explosion has been destroyed");
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        PlayerHealthSystem player = collision.gameObject.GetComponent<PlayerHealthSystem>();
+
+        if (player)
+        {
+            player.Damage(1);
+        }
+    }
 }

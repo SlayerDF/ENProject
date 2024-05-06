@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -18,6 +19,10 @@ public class GameState : MonoBehaviour
 
     [SerializeField]
     private Player playerPrefab;
+
+    [SerializeField]
+    private TextMeshProUGUI debugText;
+    public TextMeshProUGUI DebugText => debugText;
 
     private void Awake()
     {

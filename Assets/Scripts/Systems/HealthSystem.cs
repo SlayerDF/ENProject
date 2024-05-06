@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
 {
-    [SerializeField]
-    private float maxHealth = 1;
+    [SerializeField, Range(1, 10)]
+    private int maxHealth = 1;
 
-    public float Health { get; private set; }
+    public int Health { get; private set; }
 
-    public event Action<HealthSystem, float> OnHealedEvent;
-    public event Action<HealthSystem, float> OnDamagedEvent;
+    public event Action<HealthSystem, int> OnHealedEvent;
+    public event Action<HealthSystem, int> OnDamagedEvent;
     public event Action<HealthSystem> OnDiedEvent;
 
     private void Awake()
@@ -19,7 +19,7 @@ public class HealthSystem : MonoBehaviour
         Health = maxHealth;
     }
 
-    public virtual float Heal(float value)
+    public virtual int Heal(int value)
     {
         var diff = ModifyLife(Health + value);
 
@@ -27,12 +27,12 @@ public class HealthSystem : MonoBehaviour
 
         OnHealedEvent?.Invoke(this, diff);
 
-        Debug.Log($"[${gameObject.name}] Health value increased by ${diff} points.");
+        Debug.Log($"[{gameObject.name}] Health value increased by {diff} points.");
 
         return diff;
     }
 
-    public virtual float Damage(float value)
+    public virtual int Damage(int value)
     {
         var diff = ModifyLife(Health - value);
 
@@ -40,21 +40,21 @@ public class HealthSystem : MonoBehaviour
 
         OnDamagedEvent?.Invoke(this, diff);
 
-        Debug.Log($"[${gameObject.name}] Health value decreased by ${diff} points.");
+        Debug.Log($"[{gameObject.name}] Health value decreased by {diff} points.");
 
-        if (Health == 0)
+        if (Health <= 0)
         {
             OnDiedEvent?.Invoke(this);
 
-            Debug.Log($"[${gameObject.name}] Health has reached zero. Object has been reported as dead.");
+            Debug.Log($"[{gameObject.name}] Health has reached zero. Object has been reported as dead.");
         }
 
-        return diff;
+        return Math.Abs(diff);
     }
 
-    private float ModifyLife(float value)
+    private int ModifyLife(int value)
     {
-        value = Mathf.Clamp(Health + value, 0, maxHealth);
+        value = Mathf.Clamp(value, 0, maxHealth);
 
         var diff = value - Health;
 
