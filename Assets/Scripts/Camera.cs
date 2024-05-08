@@ -42,7 +42,7 @@ public class Camera : MonoBehaviour
         transform.position = GetCameraBounds();
     }
 
-    private Vector3 GetCameraBounds() => new Vector3(
+    private Vector3 GetCameraBounds() => new(
         Mathf.Clamp(transform.position.x, cameraWorldBounds.min.x, cameraWorldBounds.max.x),
         Mathf.Clamp(transform.position.y, cameraWorldBounds.min.y, cameraWorldBounds.max.y),
         transform.position.z

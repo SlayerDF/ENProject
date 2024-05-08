@@ -14,7 +14,7 @@ public class PlayerHealthSystem : HealthSystem
 
     public bool IsInvulnerabilityActive { get; private set; } = false;
 
-    public void Update()
+    private void Update()
     {
         if (IsInvulnerabilityActive && Time.time > invulnerabilityExpiresAt)
         {
