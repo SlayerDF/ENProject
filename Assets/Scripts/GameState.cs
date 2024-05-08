@@ -11,8 +11,8 @@ public class GameState : MonoBehaviour
     public Tilemap LevelTilemap => levelTilemap;
 
     [SerializeField]
-    private Camera mainCamera;
-    public Camera MainCamera => mainCamera;
+    private MainCamera mainCamera;
+    public MainCamera MainCamera => mainCamera;
 
     [SerializeField]
     private GameObject playerSpawn;
