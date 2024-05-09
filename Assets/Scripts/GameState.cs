@@ -21,6 +21,12 @@ public class GameState : MonoBehaviour
     private Player playerPrefab;
 
     [SerializeField]
+    private GameObject[] enemySpawns;
+
+    [SerializeField]
+    private Enemy enemyPrefab;
+
+    [SerializeField]
     private TextMeshProUGUI debugText;
     public TextMeshProUGUI DebugText => debugText;
 
@@ -29,6 +35,8 @@ public class GameState : MonoBehaviour
         var player = SpawnPlayer();
 
         InitializeCamera(player.gameObject);
+
+        SpawnEnemies();
     }
 
     private void InitializeCamera(GameObject target)
@@ -46,5 +54,17 @@ public class GameState : MonoBehaviour
         Destroy(playerSpawn);
 
         return player;
+    }
+
+    private void SpawnEnemies()
+    {
+        foreach (var spawn in enemySpawns)
+        {
+            var enemy = Instantiate(enemyPrefab, spawn.transform.position, spawn.transform.rotation);
+            enemy.GameState = this;
+
+            Destroy(spawn);
+        }
+
     }
 }
