@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    // TODO: Revise this approach
     public GameState GameState { get; set; }
 
     [Header("Movement")]
@@ -15,12 +16,15 @@ public class Enemy : MonoBehaviour
 
     private float lastRotateTime = 0f;
 
+    private HealthSystem healthSystem;
+
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         lastRotateTime= Time.time;
 
-        GetComponent<HealthSystem>().OnDiedEvent += OnDied;
+        healthSystem = GetComponent<HealthSystem>();
+        healthSystem.OnDiedEvent += OnDied;
     }
 
     private void Update()
@@ -81,5 +85,10 @@ public class Enemy : MonoBehaviour
         transform.Rotate(0, 0, rotationDirection * 90);
 
         lastRotateTime = Time.time;
+    }
+
+    private void OnDestroy()
+    {
+        healthSystem.OnDiedEvent -= OnDied;
     }
 }

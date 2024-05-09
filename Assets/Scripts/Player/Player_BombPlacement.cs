@@ -18,7 +18,6 @@ public partial class Player
 
     private float cooldownTimer = 0f;
 
-
     private void BombPlacementUpdate()
     {
         if (cooldownTimer > 0)

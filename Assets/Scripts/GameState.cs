@@ -51,7 +51,7 @@ public class GameState : MonoBehaviour
         var player = Instantiate(playerPrefab, playerSpawn.transform.position, playerSpawn.transform.rotation);
         player.GameState = this;
 
-        Destroy(playerSpawn);
+        Destroy(playerSpawn); // TODO: Need to rework
 
         return player;
     }

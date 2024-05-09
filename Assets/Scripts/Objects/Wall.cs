@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
+    private HealthSystem healthSystem;
+
     // Start is called before the first frame update
     private void Awake()
     {
-        GetComponent<HealthSystem>().OnDiedEvent += OnDied;
+        healthSystem = GetComponent<HealthSystem>();
+        healthSystem.OnDiedEvent += OnDied;
     }
 
     private void OnDied(HealthSystem healthSystem)
@@ -15,5 +18,10 @@ public class Wall : MonoBehaviour
         Destroy(gameObject);
 
         Debug.Log("Wall has been destroyed.");
+    }
+
+    private void OnDestroy()
+    {
+        healthSystem.OnDiedEvent -= OnDied;
     }
 }
