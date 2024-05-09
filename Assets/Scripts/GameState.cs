@@ -30,7 +30,7 @@ public class GameState : MonoBehaviour
     private GameObject ui;
     public GameObject UI => ui;
 
-    private void Awake()
+    private void Start()
     {
         var player = SpawnPlayer();
 
