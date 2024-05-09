@@ -33,8 +33,8 @@ public partial class Player
 
     private void PlaceBomb()
     {
-        var cellPosition = GameState.LevelTilemap.WorldToCell(transform.position);
-        var position = GameState.LevelTilemap.CellToWorld(cellPosition) + GameState.LevelTilemap.cellSize / 2;
+        var cellPosition = GameState.LevelGrid.Grid.WorldToCell(transform.position);
+        var position = GameState.LevelGrid.Grid.GetCellCenterWorld(cellPosition);
 
         var bomb = Instantiate(bombPrefab, position, transform.rotation);
         bomb.GameState = GameState;

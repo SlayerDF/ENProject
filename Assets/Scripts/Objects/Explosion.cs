@@ -64,11 +64,9 @@ public class Explosion : MonoBehaviour
         var position = transform.position;
         var rotation = transform.rotation;
 
-        var cellPosition = GameState.LevelTilemap.WorldToCell(position) + Vector3Int.RoundToInt(rotation * Vector3.right);
+        var cellPosition = GameState.LevelGrid.Grid.WorldToCell(position) + Vector3Int.RoundToInt(rotation * Vector3.right);
 
-        if (GameState.LevelTilemap.GetSprite(cellPosition) != spreadAllowedSprite) return null;
-
-        position = GameState.LevelTilemap.CellToWorld(cellPosition) + GameState.LevelTilemap.cellSize / 2;
+        position = GameState.LevelGrid.Grid.GetCellCenterWorld(cellPosition);
 
         return InstantiateExplosion(position, rotation);
     }

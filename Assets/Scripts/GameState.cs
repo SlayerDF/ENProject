@@ -7,8 +7,8 @@ using UnityEngine.Tilemaps;
 public class GameState : MonoBehaviour
 {
     [SerializeField]
-    private Tilemap levelTilemap;
-    public Tilemap LevelTilemap => levelTilemap;
+    private LevelGrid levelGrid;
+    public LevelGrid LevelGrid => levelGrid;
 
     [SerializeField]
     private MainCamera mainCamera;
@@ -33,9 +33,7 @@ public class GameState : MonoBehaviour
 
     private void InitializeCamera(GameObject target)
     {
-        LevelTilemap.CompressBounds();
-
-        MainCamera.SetCameraBoundsFromWorldBounds(LevelTilemap.cellBounds);
+        MainCamera.SetCameraBoundsFromWorldBounds(levelGrid.Bounds);
 
         MainCamera.Target = target;
     }
