@@ -23,8 +23,6 @@ public class LevelGrid : MonoBehaviour
             if (tilemap.cellBounds.yMax > bounds.yMax) bounds.yMax = tilemap.cellBounds.yMax;
         }
 
-        Debug.Log(bounds);
-
         Bounds = bounds;
     }
 }

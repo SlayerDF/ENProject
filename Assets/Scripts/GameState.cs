@@ -27,8 +27,8 @@ public class GameState : MonoBehaviour
     private Enemy enemyPrefab;
 
     [SerializeField]
-    private TextMeshProUGUI debugText;
-    public TextMeshProUGUI DebugText => debugText;
+    private GameObject ui;
+    public GameObject UI => ui;
 
     private void Awake()
     {
