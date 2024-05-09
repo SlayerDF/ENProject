@@ -16,12 +16,13 @@ public partial class Player : MonoBehaviour
 
         healthSystem = GetComponent<PlayerHealthSystem>();
         healthSystem.OnDiedEvent += OnDied;
-        healthSystem.OnDamagedEvent += (hs, _) => UpdateHPText(hs.Health);
-        healthSystem.OnHealedEvent += (hs, _) => UpdateHPText(hs.Health);
+        healthSystem.OnDamagedEvent += OnHealthValueChanged;
+        healthSystem.OnHealedEvent += OnHealthValueChanged;
     }
 
     private void Start()
     {
+        // TODO: Need to rework.
         playerHPText = GameState.UI.transform.Find("PlayerHP").GetComponent<TextMeshProUGUI>();
         UpdateHPText(healthSystem.Health);
     }
@@ -44,8 +45,20 @@ public partial class Player : MonoBehaviour
         Debug.Log("Player has been desactivated.");
     }
 
+    private void OnHealthValueChanged(HealthSystem healthSystem, int value)
+    {
+        UpdateHPText(healthSystem.Health);
+    }
+
     private void UpdateHPText(int value)
     {
         playerHPText.text = $"Player HP: {value}";
+    }
+
+    private void OnDestroy()
+    {
+        healthSystem.OnDiedEvent -= OnDied;
+        healthSystem.OnDamagedEvent -= OnHealthValueChanged;
+        healthSystem.OnHealedEvent -= OnHealthValueChanged;
     }
 }

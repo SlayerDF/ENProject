@@ -26,8 +26,14 @@ public class Explosion : MonoBehaviour
 
         await UniTask.Delay(spreadTimeMs);
 
-        if (step == 1) SpawnCrossExplosions();
-        else SpawnNextExplosion();
+        if (step == 1)
+        {
+            SpawnCrossExplosions();
+        }
+        else
+        {
+            SpawnNextExplosion();
+        }
     }
 
     private void OnDestroy()
