@@ -5,6 +5,8 @@ public class Explosion : MonoBehaviour
 {
     public LevelGrid LevelGrid { get; set; }
 
+    public int Radius { get => radius; set => radius = value; }
+
     [SerializeField, Range(0.1f, 5f)]
     private float lifetimeSeconds = 1f;
 

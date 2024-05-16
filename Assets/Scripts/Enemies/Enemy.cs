@@ -3,7 +3,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
-    private LevelGrid levelGrid;
+    protected LevelGrid levelGrid;
 
     [Header("Movement")]
     [SerializeField, Range(0.1f, 5f)]
@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
         rb2d.MovePosition((Vector3)rb2d.position + movementSpeed * Time.fixedDeltaTime * transform.right);
     }
 
-    private void OnDied(HealthSystem healthSystem)
+    protected virtual void OnDied(HealthSystem healthSystem)
     {
         dropLootSystem.DropLoot();
         Destroy(gameObject);
