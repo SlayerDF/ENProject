@@ -18,13 +18,17 @@ public class Enemy : MonoBehaviour
 
     private HealthSystem healthSystem;
 
+    private DropLootSystem dropLootSystem;
+
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        lastRotateTime= Time.time;
+        lastRotateTime = Time.time;
 
         healthSystem = GetComponent<HealthSystem>();
         healthSystem.OnDiedEvent += OnDied;
+
+        dropLootSystem = GetComponent<DropLootSystem>();
     }
 
     private void Update()
@@ -39,6 +43,7 @@ public class Enemy : MonoBehaviour
 
     private void OnDied(HealthSystem healthSystem)
     {
+        dropLootSystem.DropLoot();
         Destroy(gameObject);
 
         Debug.Log("Enemy has been destroyed.");
