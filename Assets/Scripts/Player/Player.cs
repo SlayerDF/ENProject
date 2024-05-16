@@ -4,8 +4,10 @@ using UnityEngine;
 
 public partial class Player : MonoBehaviour
 {
-    public GameState GameState { get; set; }
+    [SerializeField]
+    private LevelGrid levelGrid;
 
+    [SerializeField]
     private TextMeshProUGUI playerHPText;
 
     private PlayerHealthSystem healthSystem;
@@ -22,8 +24,6 @@ public partial class Player : MonoBehaviour
 
     private void Start()
     {
-        // TODO: Need to rework.
-        playerHPText = GameState.UI.transform.Find("PlayerHP").GetComponent<TextMeshProUGUI>();
         UpdateHPText(healthSystem.Health);
     }
 

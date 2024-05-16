@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -7,7 +8,9 @@ public class LevelGrid : MonoBehaviour
 
     public BoundsInt Bounds { get; private set; }
 
-    void Awake()
+    public event Action OnInitialized;
+
+    private void Awake()
     {
         Grid = GetComponent<Grid>();
 
@@ -24,5 +27,7 @@ public class LevelGrid : MonoBehaviour
         }
 
         Bounds = bounds;
+
+        OnInitialized?.Invoke();
     }
 }

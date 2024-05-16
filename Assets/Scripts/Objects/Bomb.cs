@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    public GameState GameState { get; set; }
+    public LevelGrid LevelGrid { get; set; }
 
     [Header("Bomb")]
     [SerializeField]
@@ -29,7 +29,7 @@ public class Bomb : MonoBehaviour
     private void SpawnExplosion()
     {
         var explosion = Instantiate(explosionPrefab, transform.position, transform.rotation);
-        explosion.GameState = GameState;
+        explosion.LevelGrid = LevelGrid;
     }
 
     private void OnDestroy()

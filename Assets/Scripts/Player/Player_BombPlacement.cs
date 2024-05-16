@@ -32,11 +32,11 @@ public partial class Player
 
     private void PlaceBomb()
     {
-        var cellPosition = GameState.LevelGrid.Grid.WorldToCell(transform.position);
-        var position = GameState.LevelGrid.Grid.GetCellCenterWorld(cellPosition);
+        var cellPosition = levelGrid.Grid.WorldToCell(transform.position);
+        var position = levelGrid.Grid.GetCellCenterWorld(cellPosition);
 
         var bomb = Instantiate(bombPrefab, position, transform.rotation);
-        bomb.GameState = GameState;
+        bomb.LevelGrid = levelGrid;
 
         cooldownTimer = placeCooldown;
     }

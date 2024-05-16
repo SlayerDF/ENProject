@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-    public GameState GameState { get; set; }
+    public LevelGrid LevelGrid { get; set; }
 
     [SerializeField, Range(0.1f, 5f)]
     private float lifetimeSeconds = 1f;
@@ -70,9 +70,9 @@ public class Explosion : MonoBehaviour
         var position = transform.position;
         var rotation = transform.rotation;
 
-        var cellPosition = GameState.LevelGrid.Grid.WorldToCell(position) + Vector3Int.RoundToInt(rotation * Vector3.right);
+        var cellPosition = LevelGrid.Grid.WorldToCell(position) + Vector3Int.RoundToInt(rotation * Vector3.right);
 
-        position = GameState.LevelGrid.Grid.GetCellCenterWorld(cellPosition);
+        position = LevelGrid.Grid.GetCellCenterWorld(cellPosition);
 
         return InstantiateExplosion(position, rotation);
     }
@@ -80,7 +80,7 @@ public class Explosion : MonoBehaviour
     private Explosion InstantiateExplosion(Vector3 position, Quaternion rotation)
     {
         var explosion = Instantiate(this, position, rotation);
-        explosion.GameState = GameState;
+        explosion.LevelGrid = LevelGrid;
         explosion.step = step + 1;
 
         return explosion;

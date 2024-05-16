@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // TODO: Revise this approach
-    public GameState GameState { get; set; }
+    [SerializeField]
+    private LevelGrid levelGrid;
 
     [Header("Movement")]
     [SerializeField, Range(0.1f, 5f)]
@@ -81,9 +81,9 @@ public class Enemy : MonoBehaviour
 
     private void ChangeDirection()
     {
-        var cellPosition = GameState.LevelGrid.Grid.WorldToCell(transform.position);
+        var cellPosition = levelGrid.Grid.WorldToCell(transform.position);
 
-        transform.position = GameState.LevelGrid.Grid.GetCellCenterWorld(cellPosition);
+        transform.position = levelGrid.Grid.GetCellCenterWorld(cellPosition);
 
         var rotationDirection = Random.value >= 0.5 ? 1 : -1;
 
