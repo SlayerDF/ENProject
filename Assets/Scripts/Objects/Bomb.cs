@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class Bomb : MonoBehaviour
@@ -6,7 +7,7 @@ public class Bomb : MonoBehaviour
 
     [Header("Bomb")]
     [SerializeField]
-    private float bombLifetimeSeconds = 2f;
+    private int bombLifetimeSeconds = 2;
 
     [SerializeField]
     private Collider2D physicsCollider;
@@ -15,25 +16,25 @@ public class Bomb : MonoBehaviour
     [SerializeField]
     private Explosion explosionPrefab;
 
-    private Vector3 bombPosition;
-    private Quaternion bombRotation;
-
-    void Start()
+    async void Start()
     {
-        Debug.Log("Bomb has been placed");
+        Debug.Log("Bomb has been planted");
 
-        bombPosition = transform.position;
-        bombRotation = transform.rotation;
+        await UniTask.Delay(bombLifetimeSeconds * 1000);
 
-        Destroy(gameObject, bombLifetimeSeconds);
+        SpawnExplosion();
+        Destroy(gameObject);
+    }
+
+    private void SpawnExplosion()
+    {
+        var explosion = Instantiate(explosionPrefab, transform.position, transform.rotation);
+        explosion.GameState = GameState;
     }
 
     private void OnDestroy()
     {
         Debug.Log("Bomb has been destroyed");
-
-        var explosion = Instantiate(explosionPrefab, bombPosition, bombRotation);
-        explosion.GameState = GameState;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
