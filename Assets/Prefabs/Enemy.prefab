@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 8785257267906706394}
   - component: {fileID: 9219583758342355653}
   - component: {fileID: 6938687219037152116}
+  - component: {fileID: 5152106701182108473}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -248,7 +249,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.01
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -298,3 +299,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &5152106701182108473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8235476440849075444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b22da8594ca78f04795b355f7a90c257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootItems:
+  - prefab: {fileID: 0}
+    fraction: 55
+  - prefab: {fileID: 7765365347434230242, guid: 008927749335fb043908844273cfefc8, type: 3}
+    fraction: 45
