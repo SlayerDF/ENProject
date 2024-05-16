@@ -12,7 +12,7 @@ public class HealthSystem : MonoBehaviour
     public event Action<HealthSystem, int> OnDamagedEvent;
     public event Action<HealthSystem> OnDiedEvent;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         Health = maxHealth;
     }
@@ -42,9 +42,9 @@ public class HealthSystem : MonoBehaviour
 
         if (Health <= 0)
         {
-            OnDiedEvent?.Invoke(this);
+            Debug.Log($"[{gameObject.name}] Health has reached zero. Object will be reported as dead.");
 
-            Debug.Log($"[{gameObject.name}] Health has reached zero. Object has been reported as dead.");
+            OnDiedEvent?.Invoke(this);
         }
 
         return Math.Abs(diff);
