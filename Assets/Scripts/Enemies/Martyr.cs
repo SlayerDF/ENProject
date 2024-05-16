@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Martyr : Enemy
 {
-
     [Header("Explosion on death")]
     [SerializeField]
     private Explosion explosionPrefab;

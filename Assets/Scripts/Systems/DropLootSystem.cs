@@ -28,7 +28,8 @@ public class DropLootSystem : MonoBehaviour
 
         for (int i = 0; i < lootItems.Length; i++)
         {
-            lootItems[i].position = lootItems[i].fraction + (i > 0 ? lootItems[i - 1].position : 0);
+            var itemPosition = i > 0 ? lootItems[i - 1].position : 0;
+            lootItems[i].position = lootItems[i].fraction + itemPosition;
         }
     }
 

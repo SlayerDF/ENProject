@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class PlayerHealthSystem : HealthSystem
 {
-
     [SerializeField, Range(1f, 10f)]
     private float invulnerabilityPeriodSeconds = 2f;
 

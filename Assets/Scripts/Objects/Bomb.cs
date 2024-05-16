@@ -16,7 +16,7 @@ public class Bomb : MonoBehaviour
     [SerializeField]
     private Explosion explosionPrefab;
 
-    async void Start()
+    private async void Start()
     {
         Debug.Log("Bomb has been planted");
 
