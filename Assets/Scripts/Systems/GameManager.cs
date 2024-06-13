@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameUI gameUI;
 
+    [SerializeField]
+    private int playerDamagedPenalty = 50;
+
     private int score = 0;
 
     private void Start()
@@ -39,12 +42,17 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1 - Time.timeScale;
     }
 
-    public void IncrementScore(int value)
+    public void ChangeScoreBy(int value)
     {
-        score += value;
+        score = Mathf.Clamp(score + value, 0, int.MaxValue);
 
-        Debug.Log($"Score increased by {value}");
+        Debug.Log($"Score changed by {value}");
 
         gameUI.UpdateScoreText(score);
+    }
+
+    public void ApplyPlayerDamagedPenalty()
+    {
+        ChangeScoreBy(-playerDamagedPenalty);
     }
 }

@@ -10,6 +10,9 @@ public partial class Player : MonoBehaviour
     [SerializeField]
     private GameUI gameUI;
 
+    [SerializeField]
+    private GameManager gameManager;
+
     private PlayerHealthSystem healthSystem;
 
     private void Awake()
@@ -48,6 +51,11 @@ public partial class Player : MonoBehaviour
     private void OnHealthValueChanged(HealthSystem healthSystem, int value)
     {
         gameUI.UpdateHPText(healthSystem.Health);
+        
+        if (value < 0)
+        {
+            gameManager.ApplyPlayerDamagedPenalty();
+        }
     }
 
     private void OnDestroy()

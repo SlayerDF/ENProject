@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
     protected virtual void OnDied(HealthSystem healthSystem)
     {
         dropLootSystem.DropLoot();
-        gameManager.IncrementScore(killScore);
+        gameManager.ChangeScoreBy(killScore);
         Destroy(gameObject);
 
         Debug.Log("Enemy has been destroyed.");
