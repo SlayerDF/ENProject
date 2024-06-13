@@ -91,7 +91,11 @@ public class MainMenu : MonoBehaviour
 
     private void ExitGame()
     {
-        Application.Quit();
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 
     // Switch menu methods
