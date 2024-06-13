@@ -40,7 +40,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private Button controlsBackButton;
 
-    // Add and remove event listeners
+    // State methods
     private void Awake()
     {
         // Main menu events
@@ -55,6 +55,11 @@ public class MainMenu : MonoBehaviour
 
         // Controls menu events
         controlsBackButton.onClick.AddListener(ShowMainMenu);
+    }
+
+    private void OnDisable()
+    {
+        ShowMainMenu();
     }
 
     private void OnDestroy()
