@@ -10,6 +10,16 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject mainMenu;
 
+    [SerializeField]
+    private GameUI gameUI;
+
+    private int score = 0;
+
+    private void Start()
+    {
+        gameUI.UpdateScoreText(score);
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(showMainMenuKeyCode))
@@ -18,14 +28,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        Time.timeScale = 1;
+    }
+
     private void ToggleMenu()
     {
         mainMenu.SetActive(!mainMenu.activeSelf);
         Time.timeScale = 1 - Time.timeScale;
     }
 
-    private void OnDestroy()
+    public void IncrementScore(int value)
     {
-        Time.timeScale = 1;
+        score += value;
+
+        Debug.Log($"Score increased by {value}");
+
+        gameUI.UpdateScoreText(score);
     }
 }

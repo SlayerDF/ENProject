@@ -285,10 +285,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelGrid: {fileID: 0}
+  gameManager: {fileID: 0}
   movementSpeed: 2
   RandomRotationSeconds: 3
+  killScore: 200
   explosionPrefab: {fileID: 9174289498156516832, guid: 0040efaf339cbf34dae5356b744ee91e, type: 3}
-  radius: 2
+  explosionRadius: 2
 --- !u!114 &-6595994582450820657
 MonoBehaviour:
   m_ObjectHideFlags: 0

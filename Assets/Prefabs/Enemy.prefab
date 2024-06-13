@@ -187,8 +187,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0144acc16be90be48a4b7cb0f1c0a1bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelGrid: {fileID: 0}
+  gameManager: {fileID: 0}
   movementSpeed: 2.5
   RandomRotationSeconds: 3
+  killScore: 100
 --- !u!114 &-6595994582450820657
 MonoBehaviour:
   m_ObjectHideFlags: 0

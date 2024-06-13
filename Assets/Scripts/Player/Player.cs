@@ -8,7 +8,7 @@ public partial class Player : MonoBehaviour
     private LevelGrid levelGrid;
 
     [SerializeField]
-    private TextMeshProUGUI playerHPText;
+    private GameUI gameUI;
 
     private PlayerHealthSystem healthSystem;
 
@@ -24,7 +24,7 @@ public partial class Player : MonoBehaviour
 
     private void Start()
     {
-        UpdateHPText(healthSystem.Health);
+        gameUI.UpdateHPText(healthSystem.Health);
     }
 
     private void Update()
@@ -47,12 +47,7 @@ public partial class Player : MonoBehaviour
 
     private void OnHealthValueChanged(HealthSystem healthSystem, int value)
     {
-        UpdateHPText(healthSystem.Health);
-    }
-
-    private void UpdateHPText(int value)
-    {
-        playerHPText.text = $"Player HP: {value}";
+        gameUI.UpdateHPText(healthSystem.Health);
     }
 
     private void OnDestroy()

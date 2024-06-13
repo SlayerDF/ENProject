@@ -5,12 +5,21 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     protected LevelGrid levelGrid;
 
+    [SerializeField]
+    protected GameManager gameManager;
+
     [Header("Movement")]
+
     [SerializeField, Range(0.1f, 5f)]
     private float movementSpeed = 5;
 
     [SerializeField, Range(0.1f, 5f)]
     private float RandomRotationSeconds = 3;
+
+    [Header("Other")]
+
+    [SerializeField]
+    private int killScore = 0;
 
     private Rigidbody2D rb2d;
 
@@ -44,6 +53,7 @@ public class Enemy : MonoBehaviour
     protected virtual void OnDied(HealthSystem healthSystem)
     {
         dropLootSystem.DropLoot();
+        gameManager.IncrementScore(killScore);
         Destroy(gameObject);
 
         Debug.Log("Enemy has been destroyed.");
