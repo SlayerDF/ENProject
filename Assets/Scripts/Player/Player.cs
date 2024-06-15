@@ -27,7 +27,7 @@ public partial class Player : MonoBehaviour
 
     private void Start()
     {
-        gameUI.UpdateHPText(healthSystem.Health);
+        gameUI.UpdateHPText(healthSystem.Health, valueIncreased: true, skipAnimation: true);
     }
 
     private void Update()
@@ -50,7 +50,7 @@ public partial class Player : MonoBehaviour
 
     private void OnHealthValueChanged(HealthSystem healthSystem, int value)
     {
-        gameUI.UpdateHPText(healthSystem.Health);
+        gameUI.UpdateHPText(healthSystem.Health, valueIncreased: value > 0);
         
         if (value < 0)
         {

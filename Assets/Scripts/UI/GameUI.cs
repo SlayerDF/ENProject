@@ -12,20 +12,44 @@ public class GameUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI scoreText;
 
+    private Animator animator;
     private float defaultHPImageWidth;
+
+    private int hpValue;
+    private int scoreValue;
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
+
         defaultHPImageWidth = playerHPImage.rectTransform.sizeDelta.x;
     }
 
-    public void UpdateHPText(int value)
+    public void UpdateHPText(int value, bool valueIncreased, bool skipAnimation = false)
     {
-        playerHPImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, defaultHPImageWidth * value);
+        hpValue = value;
+
+        if (skipAnimation) HPAnimationEnded();
+        else if (valueIncreased) animator.SetTrigger("HPIncreased");
+        else animator.SetTrigger("HPDecreased");
     }
 
-    public void UpdateScoreText(int value)
+    public void UpdateScoreText(int value, bool valueIncreased, bool skipAnimation = false)
     {
-        scoreText.text = $"SCORE: {value}";
+        scoreValue = value;
+
+        if (skipAnimation) ScoreAnimationEnded();
+        else if (valueIncreased) animator.SetTrigger("ScoreIncreased");
+        else animator.SetTrigger("ScoreDecreased");
+    }
+
+    private void HPAnimationEnded()
+    {
+        playerHPImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, defaultHPImageWidth * hpValue);
+    }
+
+    private void ScoreAnimationEnded()
+    {
+        scoreText.text = $"SCORE: {scoreValue}";
     }
 }

@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        gameUI.UpdateScoreText(score);
+        gameUI.UpdateScoreText(score, valueIncreased: true, skipAnimation: true);
     }
 
     private void Update()
@@ -44,11 +44,16 @@ public class GameManager : MonoBehaviour
 
     public void ChangeScoreBy(int value)
     {
-        score = Mathf.Clamp(score + value, 0, int.MaxValue);
+        var newScore = Mathf.Clamp(score + value, 0, int.MaxValue);
 
-        Debug.Log($"Score changed by {value}");
+        if (newScore != score)
+        {
+            score = newScore;
 
-        gameUI.UpdateScoreText(score);
+            Debug.Log($"Score changed by {value}");
+
+            gameUI.UpdateScoreText(score, valueIncreased: value > 0);
+        }
     }
 
     public void ApplyPlayerDamagedPenalty()

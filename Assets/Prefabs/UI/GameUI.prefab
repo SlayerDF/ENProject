@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 140401660403191207}
   - component: {fileID: 7814586535326149619}
   - component: {fileID: 8275242682463177624}
+  - component: {fileID: 8297079747424518338}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
@@ -250,9 +251,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a802b6d9391e344962f4ca36089a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHPText: {fileID: 0}
   playerHPImage: {fileID: 2201730670096741540}
   scoreText: {fileID: 1248071688551214260}
+--- !u!95 &8297079747424518338
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3381529458302924447}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aafd56b9be02d3b449f624476b0f7aad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8884509319107511897
 GameObject:
   m_ObjectHideFlags: 0
