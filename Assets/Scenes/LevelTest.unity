@@ -2947,6 +2947,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8977808058613379278, guid: ed79f36e15d55a74c885463e04f057ff, type: 3}
+      propertyPath: m_Name
+      value: LevelTestButton
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

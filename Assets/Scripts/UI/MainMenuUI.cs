@@ -25,7 +25,7 @@ public class MainMenu : MonoBehaviour
     private GameObject levelsMenuPanel;
 
     [SerializeField]
-    private Button tutorialLevelButton;
+    private Button levelTestButton;
 
     [SerializeField]
     private Button level1Button;
@@ -49,7 +49,7 @@ public class MainMenu : MonoBehaviour
         exitGameButton.onClick.AddListener(ExitGame);
 
         // Levels menu events
-        tutorialLevelButton.onClick.AddListener(LoadTutorialScene);
+        levelTestButton.onClick.AddListener(LoadLevelTestScene);
         level1Button.onClick.AddListener(LoadLevel1Scene);
         levelsBackButton.onClick.AddListener(ShowMainMenu);
 
@@ -70,7 +70,7 @@ public class MainMenu : MonoBehaviour
         exitGameButton.onClick.RemoveListener(ExitGame);
 
         // Levels menu events
-        tutorialLevelButton.onClick.RemoveListener(LoadTutorialScene);
+        levelTestButton.onClick.RemoveListener(LoadLevelTestScene);
         level1Button.onClick.RemoveListener(LoadLevel1Scene);
         levelsBackButton.onClick.RemoveListener(ShowMainMenu);
 
@@ -79,9 +79,9 @@ public class MainMenu : MonoBehaviour
     }
 
     // Switch scene methods
-    private void LoadTutorialScene()
+    private void LoadLevelTestScene()
     {
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("LevelTest");
     }
 
     private void LoadLevel1Scene()

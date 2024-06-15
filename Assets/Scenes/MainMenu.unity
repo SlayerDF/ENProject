@@ -291,6 +291,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 186570695726699446, guid: ed79f36e15d55a74c885463e04f057ff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 736388233065830844, guid: ed79f36e15d55a74c885463e04f057ff, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1574324001555042484, guid: ed79f36e15d55a74c885463e04f057ff, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -374,6 +382,10 @@ PrefabInstance:
     - target: {fileID: 8957573186097127989, guid: ed79f36e15d55a74c885463e04f057ff, type: 3}
       propertyPath: m_Name
       value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8977808058613379278, guid: ed79f36e15d55a74c885463e04f057ff, type: 3}
+      propertyPath: m_Name
+      value: LevelTestButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

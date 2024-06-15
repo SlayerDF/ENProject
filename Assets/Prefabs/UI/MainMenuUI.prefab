@@ -31,7 +31,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3233698430943984289}
-  - {fileID: 5274904727068608787}
+  - {fileID: 5073580155013599875}
   - {fileID: 2828292606322705835}
   m_Father: {fileID: 1574324001555042484}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -630,8 +630,8 @@ MonoBehaviour:
   viewControlsButton: {fileID: 3005054508514392586}
   exitGameButton: {fileID: 6031391978030980786}
   levelsMenuPanel: {fileID: 186570695726699446}
-  tutorialLevelButton: {fileID: 4718461220520185320}
-  level1Button: {fileID: 5274904727068608788}
+  levelTestButton: {fileID: 4718461220520185320}
+  level1Button: {fileID: 3167097790566639050}
   levelsBackButton: {fileID: 5393955349815505634}
   controlsMenuPanel: {fileID: 5760776506425108379}
   controlsBackButton: {fileID: 2967936282552701642}
@@ -725,11 +725,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6857628631189410302, guid: 416c37a8237890046bda232f150e30c2, type: 3}
       propertyPath: m_Name
-      value: TutorialLevelButton
+      value: LevelTestButton
       objectReference: {fileID: 0}
     - target: {fileID: 8893720380096741075, guid: 416c37a8237890046bda232f150e30c2, type: 3}
       propertyPath: m_text
-      value: TUTORIAL LEVEL
+      value: TEST LEVEL
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1206,12 +1206,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 416c37a8237890046bda232f150e30c2, type: 3}
---- !u!224 &5274904727068608787 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1106974716762692497, guid: 416c37a8237890046bda232f150e30c2, type: 3}
-  m_PrefabInstance: {fileID: 5274904727068608786}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5274904727068608788 stripped
+--- !u!114 &3167097790566639050 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7117925260054375640, guid: 416c37a8237890046bda232f150e30c2, type: 3}
   m_PrefabInstance: {fileID: 5274904727068608786}
@@ -1222,6 +1217,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &5073580155013599875 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1106974716762692497, guid: 416c37a8237890046bda232f150e30c2, type: 3}
+  m_PrefabInstance: {fileID: 5274904727068608786}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5436946910415787730
 PrefabInstance:
   m_ObjectHideFlags: 0
