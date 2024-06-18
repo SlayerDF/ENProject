@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 06232636607ca0d45aecbdf6308cc3ab
+guid: 6adbb7104cbf8ed4f86d65915c58a8b0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: road_angle
+      name: MainCharacter_front_idle1
       rect:
         serializedVersion: 2
         x: 14
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e43029ecd5e18340bcdd70828617958
-      internalID: -1069365072
+      spriteID: f3579e1474de3be4483bbd5382482e90
+      internalID: -1475353272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: road
+      name: MainCharacter_front_idle2
       rect:
         serializedVersion: 2
         x: 284
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9ac06c3ea3a9e748945c57d0cec2545
-      internalID: -2129434598
+      spriteID: 9d02821e12acead42b11cce21646814d
+      internalID: 1649423823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: road_cross
+      name: MainCharacter_front_idle3
       rect:
         serializedVersion: 2
         x: 554
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fedada47af11a234bb1aa2d3fca60d45
-      internalID: 378643817
+      spriteID: 81ed5f8b2abb2eb4c8728b65c3956bff
+      internalID: 947572730
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass_2
+      name: MainCharacter_front_idle4
       rect:
         serializedVersion: 2
         x: 824
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bce178fa7b65b174ead27d43e49add06
-      internalID: -674356624
+      spriteID: af9ce696e910fb54696196c61170bcee
+      internalID: -1872937549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass_3
+      name: MainCharacter_front_walk1
       rect:
         serializedVersion: 2
         x: 1094
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c251249954210f746bad1332fe6dccf0
-      internalID: 904654744
+      spriteID: 6cdd1dfc25f33f94eaf2a66181837326
+      internalID: 245751042
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass_4
+      name: MainCharacter_front_walk2
       rect:
         serializedVersion: 2
         x: 1364
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5de490300864b341b7c96c6696705ef
-      internalID: 397471404
+      spriteID: 9a1873b382a98ef49b3f682d58a691ce
+      internalID: 637975333
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fence_top_angle
+      name: MainCharacter_front_walk3
       rect:
         serializedVersion: 2
         x: 14
@@ -250,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29a684c11ecd9e7428d236f78e3e2fd6
-      internalID: 162573761
+      spriteID: 365c1b6432f1afb42ad343f66f5d57c2
+      internalID: -568212856
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fence_top
+      name: MainCharacter_front_walk4
       rect:
         serializedVersion: 2
         x: 284
@@ -271,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fa7f3a93867849479b704904693c4b5
-      internalID: 1513753949
+      spriteID: de37957c67df3bc41928c967ea78a387
+      internalID: -1119960620
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass_1
+      name: MainCharacter_back_idle1
       rect:
         serializedVersion: 2
         x: 554
@@ -292,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 473994f60f6d83940af6683f648f4a6d
-      internalID: -1219311086
+      spriteID: 7a1fb8f77911e2c4e93851cc4deed7d5
+      internalID: 342796974
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass_5
+      name: MainCharacter_back_idle2
       rect:
         serializedVersion: 2
         x: 824
@@ -313,14 +313,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e49a189056c641647be34246f8e624c8
-      internalID: 1621039055
+      spriteID: 45320c5832bf4fb45be1c7fb43b16aba
+      internalID: 1241480066
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass_6
+      name: MainCharacter_back_idle3
       rect:
         serializedVersion: 2
         x: 1094
@@ -334,14 +334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc1b29af94a40874a95a153a36cc0d97
-      internalID: 1052640529
+      spriteID: 8b1e57ca0e3f89b49af38efca3284fc9
+      internalID: 375770247
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass_7
+      name: MainCharacter_back_idle4
       rect:
         serializedVersion: 2
         x: 1364
@@ -355,14 +355,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d1921ba27cc0a24aa87fe9e83d7bdcd
-      internalID: 753423793
+      spriteID: ebae4a0eaf6f4b345a735b4df6f04044
+      internalID: 16972698
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fence_side
+      name: MainCharacter_back_walk1
       rect:
         serializedVersion: 2
         x: 14
@@ -376,14 +376,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acc86834101da444bb81a3119198f672
-      internalID: 464633013
+      spriteID: f4990b7d9d29d204d88c5c2b6c047cee
+      internalID: 1313758421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wall_bush_1
+      name: MainCharacter_back_walk2
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 284
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f7059bb4a374ef4690e06f6909fd9ab
+      internalID: 669767387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainCharacter_back_walk3
       rect:
         serializedVersion: 2
         x: 554
@@ -397,14 +418,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95dd7e9b2a17a4c4898aaa683441090e
-      internalID: -1012631100
+      spriteID: 02f2be8209e12eb41b8dae48bfdf958f
+      internalID: 506909366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wall_bush_2
+      name: MainCharacter_back_walk4
       rect:
         serializedVersion: 2
         x: 824
@@ -418,14 +439,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 319c51f3ec08e314bb7cb1838a9c6e9d
-      internalID: 2014944622
+      spriteID: e224a60c32dfd7149844134fab46ab19
+      internalID: 1959626018
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wall_well
+      name: MainCharacter_side_idle1
       rect:
         serializedVersion: 2
         x: 1094
@@ -439,14 +460,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56a9b1f139295384f8ddc0ec2b38b630
-      internalID: -1675986829
+      spriteID: 44ff3c9fddf87814da27f9e3aa8cb79d
+      internalID: 456190194
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wall_stump_and_stones
+      name: MainCharacter_side_idle2
       rect:
         serializedVersion: 2
         x: 1364
@@ -460,14 +481,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f44b634892a7ee946a275e1db0609cdb
-      internalID: 575954239
+      spriteID: 1c568dfd89b636d40bac090de1643391
+      internalID: 1090148851
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fence_bottom_angle
+      name: MainCharacter_side_idle3
       rect:
         serializedVersion: 2
         x: 14
@@ -481,14 +502,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cf786b1ff943184189d4bdb88773977
-      internalID: -733171193
+      spriteID: ca8c2d2cb1d0d2049a61712180b28b5d
+      internalID: 1755999522
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fence_bottom
+      name: MainCharacter_side_idle4
       rect:
         serializedVersion: 2
         x: 284
@@ -502,8 +523,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ac7cd3c3285ac54ea72ebca8cc1d838
-      internalID: -1974651097
+      spriteID: 67297fd828340404ba5ce3d5fc1c5fc9
+      internalID: 339001844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainCharacter_side_walk1
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 14
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc56c53b6bee00f408df68a427673448
+      internalID: 434429971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainCharacter_side_walk2
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 14
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7815d997df7ad9645a86c86ce44762f4
+      internalID: -1554910079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainCharacter_side_walk3
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 14
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efe9c3582d0301447895bee070b803d7
+      internalID: -263732416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainCharacter_side_walk4
+      rect:
+        serializedVersion: 2
+        x: 1362
+        y: 14
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 743458a7ae2dc12499ef9acb199240a2
+      internalID: 1852679237
       vertices: []
       indices: 
       edges: []
@@ -519,25 +624,30 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      fence_bottom: -1974651097
-      fence_bottom_angle: -733171193
-      fence_side: 464633013
-      fence_top: 1513753949
-      fence_top_angle: 162573761
-      grass_1: -1219311086
-      grass_2: -674356624
-      grass_3: 904654744
-      grass_4: 397471404
-      grass_5: 1621039055
-      grass_6: 1052640529
-      grass_7: 753423793
-      road: -2129434598
-      road_angle: -1069365072
-      road_cross: 378643817
-      wall_bush_1: -1012631100
-      wall_bush_2: 2014944622
-      wall_stump_and_stones: 575954239
-      wall_well: -1675986829
+      MainCharacter_back_idle1: 342796974
+      MainCharacter_back_idle2: 1241480066
+      MainCharacter_back_idle3: 375770247
+      MainCharacter_back_idle4: 16972698
+      MainCharacter_back_walk1: 1313758421
+      MainCharacter_back_walk2: 669767387
+      MainCharacter_back_walk3: 506909366
+      MainCharacter_back_walk4: 1959626018
+      MainCharacter_front_idle1: -1475353272
+      MainCharacter_front_idle2: 1649423823
+      MainCharacter_front_idle3: 947572730
+      MainCharacter_front_idle4: -1872937549
+      MainCharacter_front_walk1: 245751042
+      MainCharacter_front_walk2: 637975333
+      MainCharacter_front_walk3: -568212856
+      MainCharacter_front_walk4: -1119960620
+      MainCharacter_side_idle1: 456190194
+      MainCharacter_side_idle2: 1090148851
+      MainCharacter_side_idle3: 1755999522
+      MainCharacter_side_idle4: 339001844
+      MainCharacter_side_walk1: 434429971
+      MainCharacter_side_walk2: -1554910079
+      MainCharacter_side_walk3: -263732416
+      MainCharacter_side_walk4: 1852679237
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

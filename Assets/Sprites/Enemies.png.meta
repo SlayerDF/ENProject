@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 06232636607ca0d45aecbdf6308cc3ab
+guid: b2ba0ee3077b46d4f81a0b582b190abe
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: road_angle
+      name: Enemies_common_front_walk1
       rect:
         serializedVersion: 2
         x: 14
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e43029ecd5e18340bcdd70828617958
-      internalID: -1069365072
+      spriteID: 26e5d3e281ccfb14d886e106385d080a
+      internalID: 2082136968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: road
+      name: Enemies_common_front_walk2
       rect:
         serializedVersion: 2
         x: 284
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9ac06c3ea3a9e748945c57d0cec2545
-      internalID: -2129434598
+      spriteID: 800c2197c8ef91d41930a5304681fa0b
+      internalID: 1153882021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: road_cross
+      name: Enemies_common_front_walk3
       rect:
         serializedVersion: 2
         x: 554
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fedada47af11a234bb1aa2d3fca60d45
-      internalID: 378643817
+      spriteID: 293175eacfa8a4741acca259db71af7a
+      internalID: -118321394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass_2
+      name: Enemies_common_front_walk4
       rect:
         serializedVersion: 2
         x: 824
@@ -187,18 +187,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bce178fa7b65b174ead27d43e49add06
-      internalID: -674356624
+      spriteID: 601498d04ca89f0408832e8f9bcaba22
+      internalID: -190736605
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass_3
+      name: Enemies_common_back_walk1
       rect:
         serializedVersion: 2
         x: 1094
-        y: 824
+        y: 826
         width: 256
         height: 256
       alignment: 0
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c251249954210f746bad1332fe6dccf0
-      internalID: 904654744
+      spriteID: 78a176efdcb06d24cac1b39cee88a1c7
+      internalID: -614481564
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass_4
+      name: Enemies_common_back_walk2
       rect:
         serializedVersion: 2
         x: 1364
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5de490300864b341b7c96c6696705ef
-      internalID: 397471404
+      spriteID: cf3a1f480a76cca4b9b037ae4a396897
+      internalID: -1964518497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fence_top_angle
+      name: Enemies_common_side_walk1
       rect:
         serializedVersion: 2
         x: 14
@@ -250,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29a684c11ecd9e7428d236f78e3e2fd6
-      internalID: 162573761
+      spriteID: bafdaa7b37a6dea41bfd181da079a978
+      internalID: 2097231091
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fence_top
+      name: Enemies_common_side_walk2
       rect:
         serializedVersion: 2
         x: 284
@@ -271,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fa7f3a93867849479b704904693c4b5
-      internalID: 1513753949
+      spriteID: d4058cb1b14380f4984d3571258b6b2e
+      internalID: 675800757
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass_1
+      name: Enemies_common_side_walk3
       rect:
         serializedVersion: 2
         x: 554
@@ -292,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 473994f60f6d83940af6683f648f4a6d
-      internalID: -1219311086
+      spriteID: 3fa81135b0882fc42a2328690aca738a
+      internalID: 1802930582
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass_5
+      name: Enemies_common_side_walk4
       rect:
         serializedVersion: 2
         x: 824
@@ -313,14 +313,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e49a189056c641647be34246f8e624c8
-      internalID: 1621039055
+      spriteID: 81e549a2daf314442801c05dd333c96f
+      internalID: 1035194826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass_6
+      name: Enemies_martyr_front_walk1
       rect:
         serializedVersion: 2
         x: 1094
@@ -334,14 +334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc1b29af94a40874a95a153a36cc0d97
-      internalID: 1052640529
+      spriteID: 49bdf718efdaf98439bc8db3082c8c2c
+      internalID: -1350108115
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass_7
+      name: Enemies_martyr_front_walk2
       rect:
         serializedVersion: 2
         x: 1364
@@ -355,14 +355,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d1921ba27cc0a24aa87fe9e83d7bdcd
-      internalID: 753423793
+      spriteID: aa9fefc4f42b49744816367de7439cda
+      internalID: -2020463529
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fence_side
+      name: Enemies_martyr_front_walk3
       rect:
         serializedVersion: 2
         x: 14
@@ -376,14 +376,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acc86834101da444bb81a3119198f672
-      internalID: 464633013
+      spriteID: 47be1771fbfa12f498496845f44e5fe5
+      internalID: 135120593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wall_bush_1
+      name: Enemies_martyr_front_walk4
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 284
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7382892347ce3c545b25f75ea070f49a
+      internalID: -492166588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies_martyr_back_walk1
       rect:
         serializedVersion: 2
         x: 554
@@ -397,14 +418,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95dd7e9b2a17a4c4898aaa683441090e
-      internalID: -1012631100
+      spriteID: 5cba013d86547194b86ea3bac1e46acc
+      internalID: 1672272474
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wall_bush_2
+      name: Enemies_martyr_back_walk2
       rect:
         serializedVersion: 2
         x: 824
@@ -418,14 +439,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 319c51f3ec08e314bb7cb1838a9c6e9d
-      internalID: 2014944622
+      spriteID: 7191ae20d30ee3f4db0a7f687ae3afbb
+      internalID: 1853511904
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wall_well
+      name: Enemies_martyr_side_walk1
       rect:
         serializedVersion: 2
         x: 1094
@@ -439,14 +460,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56a9b1f139295384f8ddc0ec2b38b630
-      internalID: -1675986829
+      spriteID: b48b8becf4fa38b4b9e4825e5ace3343
+      internalID: -1294448134
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wall_stump_and_stones
+      name: Enemies_martyr_side_walk2
       rect:
         serializedVersion: 2
         x: 1364
@@ -460,14 +481,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f44b634892a7ee946a275e1db0609cdb
-      internalID: 575954239
+      spriteID: ad4015f8eb209d3428aff7b64e7d8ba1
+      internalID: 1884685250
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fence_bottom_angle
+      name: Enemies_martyr_side_walk3
       rect:
         serializedVersion: 2
         x: 14
@@ -481,14 +502,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cf786b1ff943184189d4bdb88773977
-      internalID: -733171193
+      spriteID: 0ddb3cb278f847f42a628af6e246e26e
+      internalID: -1820180773
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fence_bottom
+      name: Enemies_martyr_side_walk4
       rect:
         serializedVersion: 2
         x: 284
@@ -502,8 +523,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ac7cd3c3285ac54ea72ebca8cc1d838
-      internalID: -1974651097
+      spriteID: fdb7a098de0ec8349b779132099bf8c7
+      internalID: 917507
       vertices: []
       indices: 
       edges: []
@@ -519,25 +540,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      fence_bottom: -1974651097
-      fence_bottom_angle: -733171193
-      fence_side: 464633013
-      fence_top: 1513753949
-      fence_top_angle: 162573761
-      grass_1: -1219311086
-      grass_2: -674356624
-      grass_3: 904654744
-      grass_4: 397471404
-      grass_5: 1621039055
-      grass_6: 1052640529
-      grass_7: 753423793
-      road: -2129434598
-      road_angle: -1069365072
-      road_cross: 378643817
-      wall_bush_1: -1012631100
-      wall_bush_2: 2014944622
-      wall_stump_and_stones: 575954239
-      wall_well: -1675986829
+      Enemies_common_back_walk1: -614481564
+      Enemies_common_back_walk2: -1964518497
+      Enemies_common_front_walk1: 2082136968
+      Enemies_common_front_walk2: 1153882021
+      Enemies_common_front_walk3: -118321394
+      Enemies_common_front_walk4: -190736605
+      Enemies_common_side_walk1: 2097231091
+      Enemies_common_side_walk2: 675800757
+      Enemies_common_side_walk3: 1802930582
+      Enemies_common_side_walk4: 1035194826
+      Enemies_martyr_back_walk1: 1672272474
+      Enemies_martyr_back_walk2: 1853511904
+      Enemies_martyr_front_walk1: -1350108115
+      Enemies_martyr_front_walk2: -2020463529
+      Enemies_martyr_front_walk3: 135120593
+      Enemies_martyr_front_walk4: -492166588
+      Enemies_martyr_side_walk1: -1294448134
+      Enemies_martyr_side_walk2: 1884685250
+      Enemies_martyr_side_walk3: -1820180773
+      Enemies_martyr_side_walk4: 917507
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

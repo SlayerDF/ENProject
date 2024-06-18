@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 06232636607ca0d45aecbdf6308cc3ab
+guid: a0feeba7e62d35944819398fefeaf1a7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -37,9 +37,9 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: road_angle
+      name: Objects_bone1
       rect:
         serializedVersion: 2
         x: 14
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e43029ecd5e18340bcdd70828617958
-      internalID: -1069365072
+      spriteID: 2472fd925cfc07241bae61e66c03f2eb
+      internalID: -1729785220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: road
+      name: Objects_bone2
       rect:
         serializedVersion: 2
         x: 284
@@ -145,17 +145,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9ac06c3ea3a9e748945c57d0cec2545
-      internalID: -2129434598
+      spriteID: 64b7be0c1481f5f4d9ae68f45d268e12
+      internalID: -506749485
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: road_cross
+      name: Objects_bone3
       rect:
         serializedVersion: 2
-        x: 554
+        x: 552
         y: 824
         width: 256
         height: 256
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fedada47af11a234bb1aa2d3fca60d45
-      internalID: 378643817
+      spriteID: e8abcf13af778ec49affbc129991eb15
+      internalID: -267495320
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass_2
+      name: Objects_friedChicken
       rect:
         serializedVersion: 2
         x: 824
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bce178fa7b65b174ead27d43e49add06
-      internalID: -674356624
+      spriteID: 698beb543e29cc242afb7f61980b9973
+      internalID: 131543606
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass_3
+      name: Objects_bombAlien
       rect:
         serializedVersion: 2
         x: 1094
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c251249954210f746bad1332fe6dccf0
-      internalID: 904654744
+      spriteID: b7fc503978d1ca64296b911b2906baeb
+      internalID: 930117200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass_4
+      name: Objects_bombChicken
       rect:
         serializedVersion: 2
         x: 1364
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5de490300864b341b7c96c6696705ef
-      internalID: 397471404
+      spriteID: e397f935c4e797f458b5f853b3fda516
+      internalID: 989389056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fence_top_angle
+      name: Objects_exitClosed
       rect:
         serializedVersion: 2
         x: 14
@@ -250,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29a684c11ecd9e7428d236f78e3e2fd6
-      internalID: 162573761
+      spriteID: 4ee5733477fdf3d4a9b8dde6034f00ff
+      internalID: -129319351
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fence_top
+      name: Objects_exit
       rect:
         serializedVersion: 2
         x: 284
@@ -271,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fa7f3a93867849479b704904693c4b5
-      internalID: 1513753949
+      spriteID: 538c6cc835fb5234083fd4ec054018a4
+      internalID: 1301686370
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass_1
+      name: Objects_stonePile
       rect:
         serializedVersion: 2
         x: 554
@@ -292,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 473994f60f6d83940af6683f648f4a6d
-      internalID: -1219311086
+      spriteID: d657fb2973a487e438d6e62824b66143
+      internalID: 745444259
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass_5
+      name: Objects_alienHead
       rect:
         serializedVersion: 2
         x: 824
@@ -313,14 +313,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e49a189056c641647be34246f8e624c8
-      internalID: 1621039055
+      spriteID: 606d78fab4f4c13448fc9869963bcb08
+      internalID: -2140530584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass_6
+      name: Objects_shovel
       rect:
         serializedVersion: 2
         x: 1094
@@ -334,14 +334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc1b29af94a40874a95a153a36cc0d97
-      internalID: 1052640529
+      spriteID: 4274b297bad5b03409b09f75b8ffc123
+      internalID: -1123366388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grass_7
+      name: Objects_box
       rect:
         serializedVersion: 2
         x: 1364
@@ -355,155 +355,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d1921ba27cc0a24aa87fe9e83d7bdcd
-      internalID: 753423793
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fence_side
-      rect:
-        serializedVersion: 2
-        x: 14
-        y: 284
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: acc86834101da444bb81a3119198f672
-      internalID: 464633013
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wall_bush_1
-      rect:
-        serializedVersion: 2
-        x: 554
-        y: 284
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 95dd7e9b2a17a4c4898aaa683441090e
-      internalID: -1012631100
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wall_bush_2
-      rect:
-        serializedVersion: 2
-        x: 824
-        y: 284
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 319c51f3ec08e314bb7cb1838a9c6e9d
-      internalID: 2014944622
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wall_well
-      rect:
-        serializedVersion: 2
-        x: 1094
-        y: 284
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 56a9b1f139295384f8ddc0ec2b38b630
-      internalID: -1675986829
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wall_stump_and_stones
-      rect:
-        serializedVersion: 2
-        x: 1364
-        y: 284
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f44b634892a7ee946a275e1db0609cdb
-      internalID: 575954239
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fence_bottom_angle
-      rect:
-        serializedVersion: 2
-        x: 14
-        y: 14
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1cf786b1ff943184189d4bdb88773977
-      internalID: -733171193
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fence_bottom
-      rect:
-        serializedVersion: 2
-        x: 284
-        y: 14
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ac7cd3c3285ac54ea72ebca8cc1d838
-      internalID: -1974651097
+      spriteID: cbee108e515077143839146ecb4bc4b6
+      internalID: -778755662
       vertices: []
       indices: 
       edges: []
@@ -519,25 +372,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      fence_bottom: -1974651097
-      fence_bottom_angle: -733171193
-      fence_side: 464633013
-      fence_top: 1513753949
-      fence_top_angle: 162573761
-      grass_1: -1219311086
-      grass_2: -674356624
-      grass_3: 904654744
-      grass_4: 397471404
-      grass_5: 1621039055
-      grass_6: 1052640529
-      grass_7: 753423793
-      road: -2129434598
-      road_angle: -1069365072
-      road_cross: 378643817
-      wall_bush_1: -1012631100
-      wall_bush_2: 2014944622
-      wall_stump_and_stones: 575954239
-      wall_well: -1675986829
+      Objects_alienHead: -2140530584
+      Objects_bombAlien: 930117200
+      Objects_bombChicken: 989389056
+      Objects_bone1: -1729785220
+      Objects_bone2: -506749485
+      Objects_bone3: -267495320
+      Objects_box: -778755662
+      Objects_exit: 1301686370
+      Objects_exitClosed: -129319351
+      Objects_friedChicken: 131543606
+      Objects_shovel: -1123366388
+      Objects_stonePile: 745444259
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
