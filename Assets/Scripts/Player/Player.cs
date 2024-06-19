@@ -41,6 +41,11 @@ public partial class Player : MonoBehaviour
         MovementFixedUpdate();
     }
 
+    private void LateUpdate()
+    {
+        MovementLateUpdate();
+    }
+
     private void OnDied(HealthSystem healthSystem)
     {
         gameObject.SetActive(false);
@@ -54,6 +59,8 @@ public partial class Player : MonoBehaviour
         
         if (value < 0)
         {
+            animator.SetTrigger("Damaged");
+
             gameManager.ApplyPlayerDamagedPenalty();
         }
     }
