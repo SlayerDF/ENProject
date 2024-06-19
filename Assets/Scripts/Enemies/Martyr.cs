@@ -20,7 +20,10 @@ public class Martyr : Enemy
 
     private void SpawnBomb()
     {
-        var bomb = Instantiate(bombPrefab, transform.position, transform.rotation);
+        var cellPosition = levelGrid.Grid.WorldToCell(transform.position);
+        var position = levelGrid.Grid.GetCellCenterWorld(cellPosition);
+
+        var bomb = Instantiate(bombPrefab, position, transform.rotation);
         bomb.LevelGrid = levelGrid;
         bomb.Type = Bomb.BombType.Alien;
         bomb.ExplosionRadius = explosionRadius;

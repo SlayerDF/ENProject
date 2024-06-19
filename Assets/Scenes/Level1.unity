@@ -5941,7 +5941,9 @@ MonoBehaviour:
   - {fileID: 489408847}
   - {fileID: 971570713}
   - {fileID: 263427075}
-  lootToDistribute: []
+  lootToDistribute:
+  - {fileID: 7765365347434230242, guid: 76ba4f35f52e5ca47914bd8d045ea105, type: 3}
+  - {fileID: 183991266463075054, guid: 1617a5d34e58b2c4bb832a93f33f25d9, type: 3}
 --- !u!1001 &1719728111
 PrefabInstance:
   m_ObjectHideFlags: 0

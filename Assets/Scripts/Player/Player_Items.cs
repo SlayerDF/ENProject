@@ -12,6 +12,13 @@ public partial class Player
     {
         hasShovel = true;
 
-        gameUI.ShowShovel();
+        gameUI.SetActiveShovel(true);
+    }
+
+    private void RemoveShovel()
+    {
+        hasShovel= false;
+
+        gameUI.SetActiveShovel(false);
     }
 }

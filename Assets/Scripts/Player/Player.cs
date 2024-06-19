@@ -51,6 +51,7 @@ public partial class Player : MonoBehaviour
     {
         MovementUpdate();
         BombPlacementUpdate();
+        InteractionsUpdate();
     }
 
     private void FixedUpdate()
@@ -63,11 +64,16 @@ public partial class Player : MonoBehaviour
         MovementLateUpdate();
     }
 
-    private void OnDied(HealthSystem healthSystem)
+    private void Desactivate()
     {
         gameObject.SetActive(false);
 
         Debug.Log("Player has been desactivated.");
+    }
+
+    private void OnDied(HealthSystem healthSystem)
+    {
+        Desactivate();
     }
 
     private void OnHealthValueChanged(HealthSystem healthSystem, int value)

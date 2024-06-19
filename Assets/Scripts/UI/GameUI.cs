@@ -46,9 +46,9 @@ public class GameUI : MonoBehaviour
         else animator.SetTrigger("ScoreDecreased");
     }
 
-    public void ShowShovel()
+    public void SetActiveShovel(bool value)
     {
-        shovelImage.enabled = true;
+        shovelImage.enabled = value;
     }
 
     private void HPAnimationEnded()
