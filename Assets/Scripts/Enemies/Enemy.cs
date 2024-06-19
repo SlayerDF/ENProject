@@ -14,7 +14,18 @@ public class Enemy : MonoBehaviour
     private float movementSpeed = 5;
 
     [SerializeField, Range(0.1f, 5f)]
-    private float RandomRotationSeconds = 3;
+    private float randomRotationSeconds = 3;
+
+    [Header("Visual")]
+
+    [SerializeField]
+    GameObject sprite;
+
+    [SerializeField]
+    GameObject testSprite;
+
+    [SerializeField]
+    bool testMode = false;
 
     [Header("Other")]
 
@@ -23,31 +34,54 @@ public class Enemy : MonoBehaviour
 
     private Rigidbody2D rb2d;
 
+    private Animator animator;
+
     private float lastRotateTime = 0f;
+
+    private Vector2 moveDirection;
 
     private HealthSystem healthSystem;
 
     private DropLootSystem dropLootSystem;
 
-    void Awake()
+    private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+
         lastRotateTime = Time.time;
 
         healthSystem = GetComponent<HealthSystem>();
         healthSystem.OnDiedEvent += OnDied;
 
         dropLootSystem = GetComponent<DropLootSystem>();
+
+        if (testMode)
+        {
+            sprite.SetActive(false);
+            testSprite.SetActive(true);
+        }
+    }
+
+    private void Start()
+    {
+        UpdateMoveDirection(Quaternion.Euler(0, 0, Random.Range(0, 4) * 90) * transform.right);
     }
 
     private void Update()
     {
-        if (Time.time > lastRotateTime + RandomRotationSeconds) ChangeDirection();
+        if (Time.time > lastRotateTime + randomRotationSeconds) ChangeDirection();
     }
 
     private void FixedUpdate()
     {
-        rb2d.MovePosition((Vector3)rb2d.position + movementSpeed * Time.fixedDeltaTime * transform.right);
+        rb2d.MovePosition(rb2d.position + movementSpeed * Time.fixedDeltaTime * moveDirection);
+    }
+
+    private void LateUpdate()
+    {
+        animator.SetFloat("XMovement", moveDirection.x);
+        animator.SetFloat("YMovement", moveDirection.y);
     }
 
     protected virtual void OnDied(HealthSystem healthSystem)
@@ -83,7 +117,7 @@ public class Enemy : MonoBehaviour
         {
             var contactDirection = (contacts[i].point - (Vector2)transform.position).normalized;
 
-            if (Vector2.Angle(transform.right, contactDirection) < 45) return true;
+            if (Vector2.Angle(moveDirection, contactDirection) < 45) return true;
         }
 
         return false;
@@ -97,9 +131,15 @@ public class Enemy : MonoBehaviour
 
         var rotationDirection = Random.value >= 0.5 ? 1 : -1;
 
-        transform.Rotate(0, 0, rotationDirection * 90);
+        UpdateMoveDirection(Quaternion.Euler(0, 0, rotationDirection * 90) * moveDirection);        
 
         lastRotateTime = Time.time;
+    }
+
+    private void UpdateMoveDirection(Vector2 direction)
+    {
+        moveDirection = direction;
+        testSprite.transform.right = direction;
     }
 
     private void OnDestroy()

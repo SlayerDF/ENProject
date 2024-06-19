@@ -13,6 +13,17 @@ public partial class Player : MonoBehaviour
     [SerializeField]
     private GameManager gameManager;
 
+    [Header("Visual")]
+
+    [SerializeField]
+    GameObject sprite;
+
+    [SerializeField]
+    GameObject testSprite;
+
+    [SerializeField]
+    bool testMode = false;
+
     private PlayerHealthSystem healthSystem;
 
     private void Awake()
@@ -23,6 +34,12 @@ public partial class Player : MonoBehaviour
         healthSystem.OnDiedEvent += OnDied;
         healthSystem.OnDamagedEvent += OnHealthValueChanged;
         healthSystem.OnHealedEvent += OnHealthValueChanged;
+
+        if (testMode)
+        {
+            sprite.SetActive(false);
+            testSprite.SetActive(true);
+        }
     }
 
     private void Start()

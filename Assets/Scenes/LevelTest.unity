@@ -131,18 +131,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1457416024072360753, guid: d1484baa513b4904d815475f8e147a38, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
-    - target: {fileID: 1662219067364913185, guid: d1484baa513b4904d815475f8e147a38, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662219067364913185, guid: d1484baa513b4904d815475f8e147a38, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 1741305907418672346, guid: d1484baa513b4904d815475f8e147a38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5
@@ -188,6 +176,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 216796224}
     - target: {fileID: 4189345487534085107, guid: d1484baa513b4904d815475f8e147a38, type: 3}
+      propertyPath: testMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4189345487534085107, guid: d1484baa513b4904d815475f8e147a38, type: 3}
       propertyPath: gameState
       value: 
       objectReference: {fileID: 0}
@@ -205,7 +197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8270792219884804455, guid: d1484baa513b4904d815475f8e147a38, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8464813571995121710, guid: d1484baa513b4904d815475f8e147a38, type: 3}
       propertyPath: m_Name
@@ -2861,6 +2853,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6668327844416266656, guid: e3e29f3e6bf49ce4f9df86104c15c644, type: 3}
+      propertyPath: testMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6668327844416266656, guid: e3e29f3e6bf49ce4f9df86104c15c644, type: 3}
       propertyPath: levelGrid
       value: 
       objectReference: {fileID: 2037170997}
@@ -3156,6 +3152,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6593685383536418748, guid: b312e6d74ff85a346919cb8c72178ad1, type: 3}
+      propertyPath: testMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593685383536418748, guid: b312e6d74ff85a346919cb8c72178ad1, type: 3}
       propertyPath: levelGrid
       value: 
       objectReference: {fileID: 2037170997}
@@ -3247,6 +3247,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6668327844416266656, guid: e3e29f3e6bf49ce4f9df86104c15c644, type: 3}
+      propertyPath: testMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -6668327844416266656, guid: e3e29f3e6bf49ce4f9df86104c15c644, type: 3}
       propertyPath: levelGrid
       value: 
@@ -3465,6 +3469,10 @@ PrefabInstance:
     - target: {fileID: 3083614965529885965, guid: b312e6d74ff85a346919cb8c72178ad1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593685383536418748, guid: b312e6d74ff85a346919cb8c72178ad1, type: 3}
+      propertyPath: testMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6593685383536418748, guid: b312e6d74ff85a346919cb8c72178ad1, type: 3}
       propertyPath: levelGrid
@@ -5129,6 +5137,10 @@ PrefabInstance:
     - target: {fileID: 3083614965529885965, guid: b312e6d74ff85a346919cb8c72178ad1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6593685383536418748, guid: b312e6d74ff85a346919cb8c72178ad1, type: 3}
+      propertyPath: testMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6593685383536418748, guid: b312e6d74ff85a346919cb8c72178ad1, type: 3}
       propertyPath: levelGrid
