@@ -7,7 +7,7 @@ using UnityEngine;
 public class DropLootSystem : MonoBehaviour
 {
     [Serializable]
-    private class LootItem
+    public class LootItem
     {
         public GameObject prefab;
 
@@ -18,15 +18,26 @@ public class DropLootSystem : MonoBehaviour
     }
 
     [SerializeField]
-    private LootItem[] lootItems;
+    private List<LootItem> lootItems = new();
 
     private int totalLootFractions;
 
     private void Awake()
     {
+        IndexItems();
+    }
+
+    public void AddItem(GameObject prefab, int fraction)
+    {
+        lootItems.Add(new LootItem { prefab = prefab, fraction = fraction });
+        IndexItems();
+    }
+
+    private void IndexItems()
+    {
         totalLootFractions = lootItems.Sum((item) => item.fraction);
 
-        for (int i = 0; i < lootItems.Length; i++)
+        for (int i = 0; i < lootItems.Count; i++)
         {
             var itemPosition = i > 0 ? lootItems[i - 1].position : 0;
             lootItems[i].position = lootItems[i].fraction + itemPosition;

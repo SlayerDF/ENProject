@@ -10,6 +10,9 @@ public class GameUI : MonoBehaviour
     private Image playerHPImage;
 
     [SerializeField]
+    private Image shovelImage;
+
+    [SerializeField]
     private TextMeshProUGUI scoreText;
 
     private Animator animator;
@@ -41,6 +44,11 @@ public class GameUI : MonoBehaviour
         if (skipAnimation) ScoreAnimationEnded();
         else if (valueIncreased) animator.SetTrigger("ScoreIncreased");
         else animator.SetTrigger("ScoreDecreased");
+    }
+
+    public void ShowShovel()
+    {
+        shovelImage.enabled = true;
     }
 
     private void HPAnimationEnded()
