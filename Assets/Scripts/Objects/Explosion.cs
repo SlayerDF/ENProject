@@ -1,4 +1,4 @@
-using Cysharp.Threading.Tasks;
+using System.Collections;
 using UnityEngine;
 
 public class Explosion : MonoBehaviour
@@ -22,11 +22,11 @@ public class Explosion : MonoBehaviour
     private int step = 1;
     private bool stopSpreading = false;
 
-    private async void Start()
+    private IEnumerator Start()
     {
         Destroy(gameObject, lifetimeSeconds);
 
-        await UniTask.Delay(spreadTimeMs);
+        yield return new WaitForSeconds(spreadTimeMs / 1000f);
 
         if (step == 1)
         {

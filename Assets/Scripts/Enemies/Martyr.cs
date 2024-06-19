@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class Martyr : Enemy
 {
-    [Header("Explosion on death")]
+    [Header("Spawn bomb on death")]
     [SerializeField]
-    private Explosion explosionPrefab;
+    private Bomb bombPrefab;
 
     [SerializeField]
     private int explosionRadius = 2;
 
     protected override void OnDied(HealthSystem healthSystem)
     {
-        SpawnExplosion();
+        SpawnBomb();
 
         base.OnDied(healthSystem);
     }
 
-    private void SpawnExplosion()
+    private void SpawnBomb()
     {
-        var explosion = Instantiate(explosionPrefab, transform.position, transform.rotation);
-        explosion.LevelGrid = levelGrid;
-        explosion.Radius = explosionRadius;
+        var bomb = Instantiate(bombPrefab, transform.position, transform.rotation);
+        bomb.LevelGrid = levelGrid;
+        bomb.Type = Bomb.BombType.Alien;
+        bomb.ExplosionRadius = explosionRadius;
     }
 }
