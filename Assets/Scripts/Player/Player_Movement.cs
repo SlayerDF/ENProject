@@ -51,6 +51,5 @@ public partial class Player
     {
         animator.SetFloat("XMovement", lastMoveDirection.x);
         animator.SetFloat("YMovement", lastMoveDirection.y);
-        
     }
 }
