@@ -74,6 +74,7 @@ public partial class Player : MonoBehaviour
     private void OnDied(HealthSystem healthSystem)
     {
         Desactivate();
+        gameManager.EndGameLose();
     }
 
     private void OnHealthValueChanged(HealthSystem healthSystem, int value)

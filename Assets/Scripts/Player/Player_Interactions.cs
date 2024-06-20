@@ -45,6 +45,7 @@ public partial class Player : MonoBehaviour
         if (exit.Opened)
         {
             Desactivate();
+            gameManager.EndGameWin();
         }
         else if (hasShovel)
         {

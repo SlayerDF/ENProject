@@ -15,12 +15,8 @@ public class LevelLootDistributor : MonoBehaviour
 
         for (int i = 0; i < lootToDistribute.Length; i++)
         {
-            if (droppers[i].TryGetComponent<DropLootSystem>(out _))
-            {
-                throw new System.Exception("Loot droppers must not have DropLootSystem");
-            }
+            var dropSystem = droppers[i].gameObject.GetComponent<DropLootSystem>();
 
-            var dropSystem = droppers[i].gameObject.AddComponent<DropLootSystem>();
             dropSystem.AddItem(lootToDistribute[i], 1);
         }
     }

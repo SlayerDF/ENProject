@@ -47,9 +47,9 @@ public class DropLootSystem : MonoBehaviour
     public void DropLoot()
     {
         var sample = UnityEngine.Random.Range(0, totalLootFractions);
-        var item = lootItems.First((pair) => sample < pair.position);
+        var item = lootItems.FirstOrDefault((pair) => sample < pair.position);
 
-        if (item.prefab != null)
+        if (item != null && item.prefab != null)
         {
             Debug.Log($"{name} dropped {item.prefab.name} ({Mathf.RoundToInt((float)item.fraction / totalLootFractions * 100)}%)");
 

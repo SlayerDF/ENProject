@@ -14,9 +14,14 @@ public class GameManager : MonoBehaviour
     private GameUI gameUI;
 
     [SerializeField]
+    private EndingUI endingUI;
+
+    [SerializeField]
     private int playerDamagedPenalty = 50;
 
     private int score = 0;
+
+    private bool endGame = false;
 
     private void Start()
     {
@@ -25,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(showMainMenuKeyCode))
+        if (Input.GetKeyDown(showMainMenuKeyCode) && !endGame)
         {
             ToggleMenu();
         }
@@ -40,6 +45,12 @@ public class GameManager : MonoBehaviour
     {
         mainMenu.SetActive(!mainMenu.activeSelf);
         Time.timeScale = 1 - Time.timeScale;
+    }
+
+    private void EndGame()
+    {
+        endGame= true;
+        Time.timeScale = 0;
     }
 
     public void ChangeScoreBy(int value)
@@ -59,5 +70,17 @@ public class GameManager : MonoBehaviour
     public void ApplyPlayerDamagedPenalty()
     {
         ChangeScoreBy(-playerDamagedPenalty);
+    }
+
+    public void EndGameWin()
+    {
+        EndGame();
+        endingUI.ShowWinScreen(score);
+    }
+
+    public void EndGameLose()
+    {
+        EndGame();
+        endingUI.ShowLoseScreen();
     }
 }
