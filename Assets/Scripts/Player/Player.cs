@@ -24,27 +24,25 @@ public partial class Player : MonoBehaviour
     [SerializeField]
     bool testMode = false;
 
-    private PlayerHealthSystem healthSystem;
+    private Animator animator;
 
     private void Awake()
     {
-        MovementAwake();
-
-        healthSystem = GetComponent<PlayerHealthSystem>();
-        healthSystem.OnDiedEvent += OnDied;
-        healthSystem.OnDamagedEvent += OnHealthValueChanged;
-        healthSystem.OnHealedEvent += OnHealthValueChanged;
+        animator = GetComponent<Animator>();
 
         if (testMode)
         {
             sprite.SetActive(false);
             testSprite.SetActive(true);
         }
+
+        MovementAwake();
+        HealthAwake();
     }
 
     private void Start()
     {
-        gameUI.UpdateHPText(healthSystem.Health, valueIncreased: true, skipAnimation: true);
+        HealthStart();
     }
 
     private void Update()
@@ -71,28 +69,8 @@ public partial class Player : MonoBehaviour
         Debug.Log("Player has been desactivated.");
     }
 
-    private void OnDied(HealthSystem healthSystem)
-    {
-        Desactivate();
-        gameManager.EndGameLose();
-    }
-
-    private void OnHealthValueChanged(HealthSystem healthSystem, int value)
-    {
-        gameUI.UpdateHPText(healthSystem.Health, valueIncreased: value > 0);
-        
-        if (value < 0)
-        {
-            animator.SetTrigger("Damaged");
-
-            gameManager.ApplyPlayerDamagedPenalty();
-        }
-    }
-
     private void OnDestroy()
     {
-        healthSystem.OnDiedEvent -= OnDied;
-        healthSystem.OnDamagedEvent -= OnHealthValueChanged;
-        healthSystem.OnHealedEvent -= OnHealthValueChanged;
+        HealthOnDestroy();
     }
 }

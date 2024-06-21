@@ -10,15 +10,12 @@ public partial class Player
 
     private Rigidbody2D rb2d;
 
-    private Animator animator;
-
     private Vector2 moveDirection;
     private Vector2 lastMoveDirection = new(0, -1);
 
     private void MovementAwake()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
 
         animator.SetFloat("MovementSpeedMultiplier", movementSpeed / 3);
     }
