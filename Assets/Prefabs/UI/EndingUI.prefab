@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 8770589135934827355}
   - component: {fileID: 9164480284960455059}
   m_Layer: 0
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 256
+  m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
@@ -272,8 +272,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restartLevelButton: {fileID: 3376975544628321320}
   loadMainMenuButton: {fileID: 619599776573173714}
-  WinText: YOU WON
-  LoseText: YOU LOSE
+  WinText: You win
+  LoseText: You lose
   pointsText: 'You''ve earned points:'
   titleText: {fileID: 8051204164084941286}
   subtitleText: {fileID: 5795644744572395194}
@@ -342,17 +342,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TITLE
+  m_text: Title
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0c6933dcf0d4f344fac11533ea98962b, type: 2}
+  m_sharedMaterial: {fileID: 7394562764872533574, guid: 0c6933dcf0d4f344fac11533ea98962b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4280427118
+  m_fontColor: {r: 0.43, g: 0.1333, b: 0.1333, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -368,14 +368,14 @@ MonoBehaviour:
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4280756078
   m_fontSize: 84
   m_fontSizeBase: 84
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 49.7
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -480,15 +480,15 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0c6933dcf0d4f344fac11533ea98962b, type: 2}
+  m_sharedMaterial: {fileID: 7394562764872533574, guid: 0c6933dcf0d4f344fac11533ea98962b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4280427118
+  m_fontColor: {r: 0.43, g: 0.1333, b: 0.1333, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -504,14 +504,14 @@ MonoBehaviour:
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4280756078
   m_fontSize: 54
   m_fontSizeBase: 54
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 49.7
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -585,7 +585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1106974716762692497, guid: 416c37a8237890046bda232f150e30c2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 1106974716762692497, guid: 416c37a8237890046bda232f150e30c2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -641,9 +641,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8893720380096741075, guid: 416c37a8237890046bda232f150e30c2, type: 3}
       propertyPath: m_text
-      value: 'RESTART LEVEL
-
-'
+      value: Restart level
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893720380096741075, guid: 416c37a8237890046bda232f150e30c2, type: 3}
+      propertyPath: m_faceColor.rgba
+      value: 4280756078
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -704,7 +706,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1106974716762692497, guid: 416c37a8237890046bda232f150e30c2, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 1106974716762692497, guid: 416c37a8237890046bda232f150e30c2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -760,9 +762,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8893720380096741075, guid: 416c37a8237890046bda232f150e30c2, type: 3}
       propertyPath: m_text
-      value: 'MAIN MENU
-
-'
+      value: Main menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893720380096741075, guid: 416c37a8237890046bda232f150e30c2, type: 3}
+      propertyPath: m_faceColor.rgba
+      value: 4280756078
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
