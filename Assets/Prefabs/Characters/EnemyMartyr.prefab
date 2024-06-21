@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootItems:
-  - prefab: {fileID: 0}
+  - prefab: {fileID: 4708496845464188747, guid: 69281d7742b28644bb2d7a6963a60632, type: 3}
     fraction: 40
   - prefab: {fileID: 7765365347434230242, guid: 008927749335fb043908844273cfefc8, type: 3}
     fraction: 60
