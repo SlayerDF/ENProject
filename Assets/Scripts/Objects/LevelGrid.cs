@@ -6,14 +6,13 @@ public class LevelGrid : MonoBehaviour
 {
     public Grid Grid { get; private set; }
 
-    public BoundsInt Bounds { get; private set; }
-
-    public event Action OnInitialized;
-
     private void Awake()
     {
         Grid = GetComponent<Grid>();
+    }
 
+    public BoundsInt CalculateBounds()
+    {
         var bounds = new BoundsInt();
 
         foreach (var tilemap in GetComponentsInChildren<Tilemap>())
@@ -26,8 +25,6 @@ public class LevelGrid : MonoBehaviour
             if (tilemap.cellBounds.yMax > bounds.yMax) bounds.yMax = tilemap.cellBounds.yMax;
         }
 
-        Bounds = bounds;
-
-        OnInitialized?.Invoke();
+        return bounds;
     }
 }

@@ -14,25 +14,7 @@ public class MainCamera : MonoBehaviour
 
     private void Awake()
     {
-        levelGrid.OnInitialized += SetCameraBoundsFromWorldBounds;
-    }
-
-    private void LateUpdate()
-    {
-        if (target == null)
-            return;
-
-        transform.position = GetCameraBounds(target.transform.position);
-    }
-
-    private void OnDestroy()
-    {
-        levelGrid.OnInitialized -= SetCameraBoundsFromWorldBounds;
-    }
-
-    private void SetCameraBoundsFromWorldBounds()
-    {
-        var worldBounds = levelGrid.Bounds;
+        var worldBounds = levelGrid.CalculateBounds();
         var camera = GetComponent<UnityEngine.Camera>();
 
         var height = camera.orthographicSize;
@@ -49,6 +31,14 @@ public class MainCamera : MonoBehaviour
             new Vector3(minX, minY, 0),
             new Vector3(maxX, maxY, 0)
         );
+    }
+
+    private void LateUpdate()
+    {
+        if (target == null)
+            return;
+
+        transform.position = GetCameraBounds(target.transform.position);
     }
 
     private Vector3 GetCameraBounds(Vector3 targetPosition) => new(
