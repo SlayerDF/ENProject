@@ -47,9 +47,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1 - Time.timeScale;
     }
 
-    private void EndGame()
+    private IEnumerator EndGame()
     {
-        endGame= true;
+        yield return new WaitForSeconds(1);
+
+        endGame = true;
         Time.timeScale = 0;
     }
 
@@ -74,13 +76,15 @@ public class GameManager : MonoBehaviour
 
     public void EndGameWin()
     {
-        EndGame();
+        StartCoroutine(EndGame());
+
         endingUI.ShowWinScreen(score);
     }
 
     public void EndGameLose()
     {
-        EndGame();
+        StartCoroutine(EndGame());
+
         endingUI.ShowLoseScreen();
     }
 }
