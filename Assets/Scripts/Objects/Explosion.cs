@@ -7,34 +7,44 @@ public class Explosion : MonoBehaviour
 
     public int Radius { get => radius; set => radius = value; }
 
-    [SerializeField, Range(0.1f, 5f)]
-    private float lifetimeSeconds = 1f;
-
     [SerializeField]
     private int radius = 3;
 
-    [SerializeField, Range(100, 2000)]
-    private int spreadTimeMs = 250;
+    [SerializeField]
+    private float animationSeconds = 1f;
 
     [SerializeField]
-    private Sprite spreadAllowedSprite;
+    private GameObject fireSpriteGameobject;
+
+    private Animator animator;
 
     private int step = 1;
     private bool stopSpreading = false;
 
-    private IEnumerator Start()
+    private void Awake()
     {
-        Destroy(gameObject, lifetimeSeconds);
+        animator = GetComponent<Animator>();
 
-        yield return new WaitForSeconds(spreadTimeMs / 1000f);
+        animator.SetFloat("SpeedMultiplier", 1 / animationSeconds);
+    }
 
-        if (step == 1)
+    private void Start()
+    {
+        if (step < 1 || step > radius)
         {
-            SpawnCrossExplosions();
+            Destroy(gameObject);
+        }
+        else if (step == 1)
+        {
+            animator.SetTrigger("Cross");
+        }
+        else if (step == radius)
+        {
+            animator.SetTrigger("End");
         }
         else
         {
-            SpawnNextExplosion();
+            animator.SetTrigger("Middle");
         }
     }
 
@@ -56,14 +66,19 @@ public class Explosion : MonoBehaviour
         }
     }
 
+#pragma warning disable IDE0051 // Remove unused private members (because they are called from Animator events)
+    private void OnAnimationEnded() => Destroy(gameObject);
+
     private void SpawnCrossExplosions()
     {
         for (int j = 0; j < 4; j++)
         {
             transform.Rotate(0, 0, 90);
+            fireSpriteGameobject.transform.Rotate(0, 0, -90);
             SpawnNextExplosion();
         }
     }
+#pragma warning restore IDE0051 // Remove unused private members
 
     private Explosion SpawnNextExplosion()
     {
