@@ -1,7 +1,9 @@
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,29 +15,29 @@ public class MainMenu : MonoBehaviour
     private GameObject mainMenuPanel;
 
     [SerializeField]
-    private Button startGameButton;
+    private HoverableButton startGameButton;
 
     [SerializeField]
-    private Button viewControlsButton;
+    private HoverableButton viewControlsButton;
 
     [SerializeField]
-    private Button mainMenuButton;
+    private HoverableButton mainMenuButton;
 
     [SerializeField]
-    private Button exitGameButton;
+    private HoverableButton exitGameButton;
 
     // Levels menu
     [SerializeField]
     private GameObject levelsMenuPanel;
 
     [SerializeField]
-    private Button levelTestButton;
+    private HoverableButton levelTestButton;
 
     [SerializeField]
-    private Button level1Button;
+    private HoverableButton level1Button;
 
     [SerializeField]
-    private Button levelsBackButton;
+    private HoverableButton levelsBackButton;
 
     // Controls menu
     [SerializeField]
@@ -45,34 +47,46 @@ public class MainMenu : MonoBehaviour
     private GameObject[] controlsSlides;
 
     [SerializeField]
-    private Button controlsPrevSlideButton;
+    private HoverableButton controlsPrevSlideButton;
 
     [SerializeField]
-    private Button controlsNextSlideButton;
+    private HoverableButton controlsNextSlideButton;
 
     [SerializeField]
-    private Button controlsBackButton;
+    private HoverableButton controlsBackButton;
+
+    // Other
+
+    [SerializeField]
+    private AudioManager audioManager;
+
+    // Variables
+
+    private Dictionary<HoverableButton, UnityAction> buttonActionMapping;
 
     private int slideIndex = 0;
 
     // State methods
     private void Awake()
     {
-        // Main menu events
-        startGameButton.onClick.AddListener(ShowLevelsMenu);
-        viewControlsButton.onClick.AddListener(ShowControlsMenu);
-        mainMenuButton.onClick.AddListener(LoadMainMenuScene);
-        exitGameButton.onClick.AddListener(ExitGame);
+        buttonActionMapping = new()
+        {
+            // Main menu events
+            { startGameButton, ShowLevelsMenu },
+            { viewControlsButton, ShowControlsMenu },
+            { mainMenuButton, LoadMainMenuScene },
+            { exitGameButton, ExitGame },
 
-        // Levels menu events
-        levelTestButton.onClick.AddListener(LoadLevelTestScene);
-        level1Button.onClick.AddListener(LoadLevel1Scene);
-        levelsBackButton.onClick.AddListener(ShowMainMenu);
+            // Levels menu events
+            { levelTestButton, LoadLevelTestScene },
+            { level1Button, LoadLevel1Scene },
+            { levelsBackButton, ShowMainMenu },
 
-        // Controls menu events
-        controlsPrevSlideButton.onClick.AddListener(PrevSlide);
-        controlsNextSlideButton.onClick.AddListener(NextSlide);
-        controlsBackButton.onClick.AddListener(ShowMainMenu);
+            // Controls menu events
+            { controlsPrevSlideButton, PrevSlide },
+            { controlsNextSlideButton, NextSlide },
+            { controlsBackButton, ShowMainMenu }
+        };
     }
 
     private void OnEnable()
@@ -80,45 +94,63 @@ public class MainMenu : MonoBehaviour
         slideIndex = 0;
         UpdateSlideButtonsVisual();
         ShowMainMenu();
+
+        foreach (var (button, action) in buttonActionMapping)
+        {
+            button.onClick.AddListener(PlayClickSound);
+            button.onHover.AddListener(PlayHoverSound);
+            button.onClick.AddListener(action);
+        }
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
-        // Main menu events
-        startGameButton.onClick.RemoveListener(ShowLevelsMenu);
-        viewControlsButton.onClick.RemoveListener(ShowControlsMenu);
-        mainMenuButton.onClick.RemoveListener(LoadMainMenuScene);
-        exitGameButton.onClick.RemoveListener(ExitGame);
+        foreach (var (button, action) in buttonActionMapping)
+        {
+            button.onClick.RemoveListener(action);
+            button.onClick.RemoveListener(PlayClickSound);
+            button.onHover.RemoveListener(PlayHoverSound);
+        }
+    }
 
-        // Levels menu events
-        levelTestButton.onClick.RemoveListener(LoadLevelTestScene);
-        level1Button.onClick.RemoveListener(LoadLevel1Scene);
-        levelsBackButton.onClick.RemoveListener(ShowMainMenu);
+    // Audio methods
 
-        // Controls menu events
-        controlsPrevSlideButton.onClick.RemoveListener(PrevSlide);
-        controlsNextSlideButton.onClick.RemoveListener(NextSlide);
-        controlsBackButton.onClick.RemoveListener(ShowMainMenu);
+    private void PlayClickSound()
+    {
+        audioManager.Play("ButtonClick");
+    }
+
+    private void PlayHoverSound()
+    {
+        audioManager.Play("ButtonHover", interrupt: false);
     }
 
     // Switch scene methods
-    private void LoadLevelTestScene()
+    private async void LoadLevelTestScene()
     {
+        await audioManager.WaitToFinishAll();
+
         SceneManager.LoadScene("LevelTest");
     }
 
     private void LoadLevel1Scene()
     {
-        SceneManager.LoadScene("Level1");
+        audioManager.WaitToFinishAll().ContinueWith(() => { SceneManager.LoadScene("Level1"); }).Forget();
+
+        
     }
 
-    private void LoadMainMenuScene()
+    private async void LoadMainMenuScene()
     {
+        await audioManager.WaitToFinishAll();
+
         SceneManager.LoadScene("MainMenu");
     }
 
-    private void ExitGame()
+    private async void ExitGame()
     {
+        await audioManager.WaitToFinishAll();
+
         #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
         #else

@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EndingUI : MonoBehaviour
 {
     [SerializeField]
-    private Button restartLevelButton;
+    private HoverableButton restartLevelButton;
 
     [SerializeField]
-    private Button loadMainMenuButton;
+    private HoverableButton loadMainMenuButton;
 
     [SerializeField]
     private string WinText;
@@ -27,27 +28,70 @@ public class EndingUI : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI subtitleText;
+
+    [SerializeField]
+    private AudioManager audioManager;
+
+    private Dictionary<HoverableButton, UnityAction> buttonActionMapping;
+
     private void Awake()
     {
-        restartLevelButton.onClick.AddListener(RestartLevel);
-        loadMainMenuButton.onClick.AddListener(LoadMainMenu);
+        buttonActionMapping = new()
+        {
+            // Main menu events
+            { restartLevelButton, RestartLevel },
+            { loadMainMenuButton, LoadMainMenu }
+        };
+    }
+    private void OnEnable()
+    {
+        foreach (var (button, action) in buttonActionMapping)
+        {
+            button.onClick.AddListener(PlayClickSound);
+            button.onHover.AddListener(PlayHoverSound);
+            button.onClick.AddListener(action);
+        }
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
-        restartLevelButton.onClick.RemoveListener(RestartLevel);
-        loadMainMenuButton.onClick.RemoveListener(LoadMainMenu);
+        foreach (var (button, action) in buttonActionMapping)
+        {
+            button.onClick.RemoveListener(action);
+            button.onClick.RemoveListener(PlayClickSound);
+            button.onHover.RemoveListener(PlayHoverSound);
+        }
     }
 
-    private void RestartLevel()
+    // Audio methods
+
+    private void PlayClickSound()
     {
+        audioManager.Play("ButtonClick");
+    }
+
+    private void PlayHoverSound()
+    {
+        audioManager.Play("ButtonHover", interrupt: false);
+    }
+
+    // Scene switch methods
+
+    private async void RestartLevel()
+    {
+        await audioManager.WaitToFinishAll();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    private void LoadMainMenu()
+    private async void LoadMainMenu()
     {
+        await audioManager.WaitToFinishAll();
+
         SceneManager.LoadScene("MainMenu");
     }
+
+    // State methods
 
     private void ShowScreen()
     {
