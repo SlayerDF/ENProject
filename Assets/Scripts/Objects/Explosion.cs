@@ -16,14 +16,20 @@ public class Explosion : MonoBehaviour
     [SerializeField]
     private GameObject fireSpriteGameobject;
 
+    private Collider2D damageCollider;
+
     private Animator animator;
+
+    private AudioManager audioManager;
 
     private int step = 1;
     private bool stopSpreading = false;
 
     private void Awake()
     {
+        damageCollider = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
+        audioManager = GetComponent<AudioManager>();
 
         animator.SetFloat("SpeedMultiplier", 1 / animationSeconds);
     }
@@ -37,10 +43,12 @@ public class Explosion : MonoBehaviour
         else if (step == 1)
         {
             animator.SetTrigger("Cross");
+            audioManager.Play("Explosion");
         }
         else if (step == radius)
         {
             animator.SetTrigger("End");
+            audioManager.Play("Fire");
         }
         else
         {
@@ -67,7 +75,14 @@ public class Explosion : MonoBehaviour
     }
 
 #pragma warning disable IDE0051 // Remove unused private members (because they are called from Animator events)
-    private void OnAnimationEnded() => Destroy(gameObject);
+    private async void OnAnimationEnded()
+    {
+        damageCollider.enabled = false;
+
+        await audioManager.WaitToFinishAll();
+
+        Destroy(gameObject);
+    }
 
     private void SpawnCrossExplosions()
     {

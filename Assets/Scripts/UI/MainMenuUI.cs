@@ -128,28 +128,28 @@ public class MainMenu : MonoBehaviour
     // Switch scene methods
     private async void LoadLevelTestScene()
     {
-        await audioManager.WaitToFinishAll();
+        await audioManager.WaitToFinishAll(ignoreTimeScale: true);
 
         SceneManager.LoadScene("LevelTest");
     }
 
-    private void LoadLevel1Scene()
+    private async void LoadLevel1Scene()
     {
-        audioManager.WaitToFinishAll().ContinueWith(() => { SceneManager.LoadScene("Level1"); }).Forget();
+        await audioManager.WaitToFinishAll(ignoreTimeScale: true);
 
-        
+        SceneManager.LoadScene("Level1");
     }
 
     private async void LoadMainMenuScene()
     {
-        await audioManager.WaitToFinishAll();
+        await audioManager.WaitToFinishAll(ignoreTimeScale: true);
 
         SceneManager.LoadScene("MainMenu");
     }
 
     private async void ExitGame()
     {
-        await audioManager.WaitToFinishAll();
+        await audioManager.WaitToFinishAll(ignoreTimeScale: true);
 
         #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;

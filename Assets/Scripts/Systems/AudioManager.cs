@@ -54,7 +54,7 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
     }
 
-    public async UniTask WaitToFinishByChannelName(string channel)
+    public async UniTask WaitToFinishByChannelName(string channel, bool ignoreTimeScale = false)
     {
         var audioSource = audioSourcesByChannelName[channel];
 
@@ -62,10 +62,10 @@ public class AudioManager : MonoBehaviour
 
         var secondsToWait = audioSource.clip.length - audioSource.time;
 
-        await UniTask.Delay(TimeSpan.FromSeconds(secondsToWait), ignoreTimeScale: true);
+        await UniTask.Delay(TimeSpan.FromSeconds(secondsToWait), ignoreTimeScale);
     }
 
-    public async UniTask WaitToFinishAll()
+    public async UniTask WaitToFinishAll(bool ignoreTimeScale = false)
     {
         float maxSecondsToWait = -1;
 
@@ -85,7 +85,7 @@ public class AudioManager : MonoBehaviour
 
         if (maxSecondsToWait > 0)
         {
-            await UniTask.Delay(TimeSpan.FromSeconds(maxSecondsToWait), ignoreTimeScale: true);
+            await UniTask.Delay(TimeSpan.FromSeconds(maxSecondsToWait), ignoreTimeScale);
         }
     }
 }

@@ -79,14 +79,14 @@ public class EndingUI : MonoBehaviour
 
     private async void RestartLevel()
     {
-        await audioManager.WaitToFinishAll();
+        await audioManager.WaitToFinishAll(ignoreTimeScale: true);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private async void LoadMainMenu()
     {
-        await audioManager.WaitToFinishAll();
+        await audioManager.WaitToFinishAll(ignoreTimeScale: true);
 
         SceneManager.LoadScene("MainMenu");
     }

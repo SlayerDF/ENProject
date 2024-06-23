@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 1854259811803808663}
   - component: {fileID: 8270792219884804455}
   - component: {fileID: 5440062102355709056}
+  - component: {fileID: 8418039005514955651}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -243,6 +244,14 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.4, y: 0.8}
   m_Direction: 0
+--- !u!81 &8418039005514955651
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8464813571995121710}
+  m_Enabled: 1
 --- !u!1 &8809033502074236947
 GameObject:
   m_ObjectHideFlags: 0
