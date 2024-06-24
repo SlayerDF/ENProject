@@ -3,11 +3,33 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static AudioManager;
 
 public class AudioManager : MonoBehaviour
 {
+    public class AudioSourceConfig : ICloneable
+    {
+        public bool loop;
+
+        public AudioSourceConfig(AudioSource audioSource)
+        {
+            loop = audioSource.loop;
+        }
+
+        public object Clone()
+        {
+            return MemberwiseClone();
+        }
+
+        internal void CopyToAudioSource(AudioSource source)
+        {
+            source.loop = loop;
+        }
+    }
+
     [Serializable]
     public struct AudioClipStruct
     {
@@ -30,27 +52,46 @@ public class AudioManager : MonoBehaviour
 
     private Dictionary<string, AudioClip> audioClipsByName;
     private Dictionary<string, AudioSource> audioSourcesByName;
+    private Dictionary<string, AudioSourceConfig> audioSourceConfigsByName;
 
     private void Awake()
     {
         audioClipsByName = audioClipStructs.ToDictionary(x => x.name, y => y.audioClip);
         audioSourcesByName = audioSourceStructs.ToDictionary(x => x.name, y => y.audioSource);
+        audioSourceConfigsByName = audioSourceStructs.ToDictionary(x => x.name, y => new AudioSourceConfig(y.audioSource));
     }
 
-    public AudioSource GetAudioSourceByName(string name) => audioSourcesByName[name];
     public AudioClip GetAudioClipByName(string name) => audioClipsByName[name];
+    public AudioSource GetAudioSourceByName(string name) => audioSourcesByName[name];
+    public AudioSourceConfig GetAudioSourceConfigByName(string name) => audioSourceConfigsByName[name];
 
-    public void Play(string sourceName, string clipName, bool interrupt = true, Action<AudioSource, AudioClip> configurator = null)
+    public void Play(string sourceName, string clipName, Action<AudioSourceConfig, AudioClip> configurator = null, bool interrupt = true)
     {
         var source = GetAudioSourceByName(sourceName);
+
+        if (!interrupt && source.isPlaying) return;
+
         var clip = GetAudioClipByName(clipName);
 
-        Play(source, clip, interrupt, configurator);
+        source.clip = clip;
+
+        var config = (AudioSourceConfig)GetAudioSourceConfigByName(sourceName).Clone();
+        configurator?.Invoke(config, clip);
+        config.CopyToAudioSource(source);
+
+        source.Play();
     }
 
     public void Stop(string sourceName)
     {
         GetAudioSourceByName(sourceName).Stop();
+    }
+
+    public UniTask WaitAudioSourceToFinish(string sourceName, bool ignoreTimeScale = false)
+    {
+        var source = GetAudioSourceByName(sourceName);
+
+        return WaitAudioSourceToFinish(source, ignoreTimeScale);
     }
 
     public async UniTask WaitToFinishAll(bool ignoreTimeScale = false)
@@ -77,13 +118,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public static void Play(AudioSource source, AudioClip clip, bool interrupt = true, Action<AudioSource, AudioClip> configurator = null)
+    public static void Play(AudioSource source, AudioClip clip, bool interrupt = true)
     {
         if (!interrupt && source.isPlaying) return;
 
         source.clip = clip;
-
-        configurator?.Invoke(source, clip);
 
         source.Play();
     }
