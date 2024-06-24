@@ -51,6 +51,12 @@ public partial class Player : MonoBehaviour
         {
             RemoveShovel();
             exit.SetState(true);
+
+            audioManager.Play("Interactions", "Dig");
+        }
+        else
+        {
+            audioManager.Play("Interactions", "Denied");
         }
     }
 }
