@@ -67,12 +67,12 @@ public class EndingUI : MonoBehaviour
 
     private void PlayClickSound()
     {
-        audioManager.Play("ButtonClick");
+        audioManager.Play("Default", "ButtonClick");
     }
 
     private void PlayHoverSound()
     {
-        audioManager.Play("ButtonHover", interrupt: false);
+        audioManager.Play("Default", "ButtonHover", interrupt: false);
     }
 
     // Scene switch methods

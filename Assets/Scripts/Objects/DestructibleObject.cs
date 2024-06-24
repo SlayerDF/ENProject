@@ -8,10 +8,10 @@ public class DestructibleObject : HealthSystem
     private Behaviour[] BehavioursToDisable;
 
     [SerializeField]
-    private AudioManager audioManager;
+    private AudioSource audioSource;
 
     [SerializeField]
-    private string playAudioOnDied;
+    private AudioClip destructionSound;
 
     private DropLootSystem lootSystem;
 
@@ -34,9 +34,9 @@ public class DestructibleObject : HealthSystem
             lootSystem.DropLoot();
         }
 
-        if (playAudioOnDied != null && audioManager != null)
+        if (destructionSound != null && audioSource != null)
         {
-            audioManager.Play(playAudioOnDied);
+            AudioManager.Play(audioSource, destructionSound);
 
             if (BehavioursToDisable != null)
             {
@@ -48,7 +48,7 @@ public class DestructibleObject : HealthSystem
 
             GetComponent<SpriteRenderer>().enabled = false;
 
-            await audioManager.WaitToFinishAll();
+            await AudioManager.WaitAudioSourceToFinish(audioSource);
         }
 
         Destroy(gameObject);

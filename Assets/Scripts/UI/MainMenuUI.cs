@@ -117,12 +117,12 @@ public class MainMenu : MonoBehaviour
 
     private void PlayClickSound()
     {
-        audioManager.Play("ButtonClick");
+        audioManager.Play("Default", "ButtonClick");
     }
 
     private void PlayHoverSound()
     {
-        audioManager.Play("ButtonHover", interrupt: false);
+        audioManager.Play("Default", "ButtonHover", interrupt: false);
     }
 
     // Switch scene methods

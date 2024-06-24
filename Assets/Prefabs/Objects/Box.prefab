@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1550119726117920325}
   - component: {fileID: 7034692447490387370}
   - component: {fileID: -2012362881384925735}
-  - component: {fileID: 8423322341012482824}
   - component: {fileID: 770747893619726201}
   m_Layer: 0
   m_Name: Box
@@ -166,26 +165,8 @@ MonoBehaviour:
   maxHealth: 1
   BehavioursToDisable:
   - {fileID: 1550119726117920325}
-  audioManager: {fileID: 8423322341012482824}
-  playAudioOnDied: Destroy
---- !u!114 &8423322341012482824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6747883007204961613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e133cc76423f3b419a302a40ca647a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSourceStructs:
-  - name: Default
-    audioSource: {fileID: 770747893619726201}
-    audioClipStructs:
-    - name: Destroy
-      audioClip: {fileID: 8300000, guid: a5b6187fcfb2a9b43a8a658130d0ab33, type: 3}
+  audioSource: {fileID: 770747893619726201}
+  destructionSound: {fileID: 8300000, guid: a5b6187fcfb2a9b43a8a658130d0ab33, type: 3}
 --- !u!82 &770747893619726201
 AudioSource:
   m_ObjectHideFlags: 0
@@ -195,7 +176,7 @@ AudioSource:
   m_GameObject: {fileID: 6747883007204961613}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4256644739961596733, guid: 2eb35ca10a46c7249b0f2fdc7302969f, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

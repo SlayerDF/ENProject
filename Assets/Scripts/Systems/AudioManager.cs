@@ -20,49 +20,37 @@ public class AudioManager : MonoBehaviour
     {
         public string name;
         public AudioSource audioSource;
-        public AudioClipStruct[] audioClipStructs;
     }
 
     [SerializeField]
     private AudioSourceStruct[] audioSourceStructs;
 
-    private readonly Dictionary<string, AudioClip> audioClipsByName = new();
-    private readonly Dictionary<string, AudioSource> audioSourcesByClipName = new();
-    private readonly Dictionary<string, AudioSource> audioSourcesByChannelName = new();
+    [SerializeField]
+    private AudioClipStruct[] audioClipStructs;
+
+    private Dictionary<string, AudioClip> audioClipsByName;
+    private Dictionary<string, AudioSource> audioSourcesByName;
 
     private void Awake()
     {
-        foreach (var audioSourceStruct in audioSourceStructs)
-        {
-            audioSourcesByChannelName.Add(audioSourceStruct.name, audioSourceStruct.audioSource);
-
-            foreach (var audioClipStruct in audioSourceStruct.audioClipStructs)
-            {
-                audioClipsByName.Add(audioClipStruct.name, audioClipStruct.audioClip);
-                audioSourcesByClipName.Add(audioClipStruct.name, audioSourceStruct.audioSource);
-            }
-        }
+        audioClipsByName = audioClipStructs.ToDictionary(x => x.name, y => y.audioClip);
+        audioSourcesByName = audioSourceStructs.ToDictionary(x => x.name, y => y.audioSource);
     }
 
-    public void Play(string clipName, bool interrupt = true)
+    public AudioSource GetAudioSourceByName(string name) => audioSourcesByName[name];
+    public AudioClip GetAudioClipByName(string name) => audioClipsByName[name];
+
+    public void Play(string sourceName, string clipName, bool interrupt = true, Action<AudioSource, AudioClip> configurator = null)
     {
-        var audioSource = audioSourcesByClipName[clipName];
+        var source = GetAudioSourceByName(sourceName);
+        var clip = GetAudioClipByName(clipName);
 
-        if (!interrupt && audioSource.isPlaying) return;
-
-        audioSource.clip = audioClipsByName[clipName];
-        audioSource.Play();
+        Play(source, clip, interrupt, configurator);
     }
 
-    public async UniTask WaitToFinishByChannelName(string channel, bool ignoreTimeScale = false)
+    public void Stop(string sourceName)
     {
-        var audioSource = audioSourcesByChannelName[channel];
-
-        if (!audioSource.isPlaying) return;
-
-        var secondsToWait = audioSource.clip.length - audioSource.time;
-
-        await UniTask.Delay(TimeSpan.FromSeconds(secondsToWait), ignoreTimeScale);
+        GetAudioSourceByName(sourceName).Stop();
     }
 
     public async UniTask WaitToFinishAll(bool ignoreTimeScale = false)
@@ -73,7 +61,7 @@ public class AudioManager : MonoBehaviour
         {
             var audioSource = audioSourceStructs[i].audioSource;
 
-            if (!audioSource.isPlaying) continue;
+            if (!IsAudioSourceAwaitable(audioSource)) continue;
 
             var secondsToWait = audioSource.clip.length - audioSource.time;
 
@@ -87,5 +75,30 @@ public class AudioManager : MonoBehaviour
         {
             await UniTask.Delay(TimeSpan.FromSeconds(maxSecondsToWait), ignoreTimeScale);
         }
+    }
+
+    public static void Play(AudioSource source, AudioClip clip, bool interrupt = true, Action<AudioSource, AudioClip> configurator = null)
+    {
+        if (!interrupt && source.isPlaying) return;
+
+        source.clip = clip;
+
+        configurator?.Invoke(source, clip);
+
+        source.Play();
+    }
+
+    public static async UniTask WaitAudioSourceToFinish(AudioSource source, bool ignoreTimeScale = false)
+    {
+        if (!IsAudioSourceAwaitable(source)) return;
+
+        var secondsToWait = source.clip.length - source.time;
+
+        await UniTask.Delay(TimeSpan.FromSeconds(secondsToWait), ignoreTimeScale);
+    }
+
+    private static bool IsAudioSourceAwaitable(AudioSource audioSource)
+    {
+        return !audioSource.loop && audioSource.clip != null && audioSource.isPlaying;
     }
 }

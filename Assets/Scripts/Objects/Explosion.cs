@@ -43,12 +43,12 @@ public class Explosion : MonoBehaviour
         else if (step == 1)
         {
             animator.SetTrigger("Cross");
-            audioManager.Play("Explosion");
+            audioManager.Play("Default", "Explosion");
         }
         else if (step == radius)
         {
             animator.SetTrigger("End");
-            audioManager.Play("Fire");
+            audioManager.Play("CloseProximity", "Fire");
         }
         else
         {

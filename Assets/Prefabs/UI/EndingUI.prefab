@@ -200,13 +200,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourceStructs:
-  - name: ButtonActions
+  - name: Default
     audioSource: {fileID: 7855754394733639873}
-    audioClipStructs:
-    - name: ButtonClick
-      audioClip: {fileID: 8300000, guid: 87d010f7121848a4a8713a22be5f9e15, type: 3}
-    - name: ButtonHover
-      audioClip: {fileID: 8300000, guid: c5c25804b6077054fa776087a3720029, type: 3}
+  audioClipStructs:
+  - name: ButtonClick
+    audioClip: {fileID: 8300000, guid: 87d010f7121848a4a8713a22be5f9e15, type: 3}
+  - name: ButtonHover
+    audioClip: {fileID: 8300000, guid: c5c25804b6077054fa776087a3720029, type: 3}
 --- !u!82 &7855754394733639873
 AudioSource:
   m_ObjectHideFlags: 0
@@ -216,7 +216,7 @@ AudioSource:
   m_GameObject: {fileID: 4961082426846886324}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8934265323625936509, guid: 2eb35ca10a46c7249b0f2fdc7302969f, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
