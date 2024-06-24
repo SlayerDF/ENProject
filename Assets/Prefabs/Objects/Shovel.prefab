@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7035025159338128462}
   - component: {fileID: 2699176472314329261}
   - component: {fileID: 9200252086930427145}
+  - component: {fileID: -1718072975518162732}
   - component: {fileID: 6236621530806177052}
   m_Layer: 0
   m_Name: Shovel
@@ -104,6 +105,26 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-1718072975518162732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7765365347434230242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e133cc76423f3b419a302a40ca647a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSourceStructs:
+  - name: Default
+    audioSource: {fileID: 6236621530806177052}
+  audioClipStructs:
+  - name: Loot
+    audioClip: {fileID: 8300000, guid: 69f2e4783ca34ee47bde925234bbb775, type: 3}
+  - name: Pickup
+    audioClip: {fileID: 8300000, guid: 8cdfee8785c295c4e8ffcf40fbf53812, type: 3}
 --- !u!82 &6236621530806177052
 AudioSource:
   m_ObjectHideFlags: 0
@@ -113,9 +134,9 @@ AudioSource:
   m_GameObject: {fileID: 7765365347434230242}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 69f2e4783ca34ee47bde925234bbb775, type: 3}
-  m_PlayOnAwake: 1
+  OutputAudioMixerGroup: {fileID: -4409681729043513056, guid: 2eb35ca10a46c7249b0f2fdc7302969f, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
