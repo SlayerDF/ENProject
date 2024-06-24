@@ -147,7 +147,7 @@ MonoBehaviour:
   testMode: 0
   bombPrefab: {fileID: 1507895884098349248, guid: 3c27e3a3cb3efc044a9cbbb18688af99, type: 3}
   placeBombKeycode: 32
-  placeCooldown: 1
+  placeCooldown: 2.5
   interactKeycode: 101
   interactCooldownSeconds: 1
   movementSpeed: 3
