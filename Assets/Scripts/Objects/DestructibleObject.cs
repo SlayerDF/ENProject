@@ -5,9 +5,6 @@ using UnityEngine;
 public class DestructibleObject : HealthSystem
 {
     [SerializeField]
-    private Behaviour[] BehavioursToDisable;
-
-    [SerializeField]
     private AudioSource audioSource;
 
     [SerializeField]
@@ -27,7 +24,7 @@ public class DestructibleObject : HealthSystem
         }
     }
 
-    private async void OnDied(HealthSystem healthSystem)
+    private void OnDied(HealthSystem healthSystem)
     {
         if (lootSystem!= null)
         {
@@ -36,19 +33,7 @@ public class DestructibleObject : HealthSystem
 
         if (destructionSound != null && audioSource != null)
         {
-            AudioManager.Play(audioSource, destructionSound);
-
-            if (BehavioursToDisable != null)
-            {
-                for (int i = 0; i < BehavioursToDisable.Length; i++)
-                {
-                    BehavioursToDisable[i].enabled = false;
-                }
-            }
-
-            GetComponent<SpriteRenderer>().enabled = false;
-
-            await AudioManager.WaitAudioSourceToFinish(audioSource);
+            AudioManager.SpawnTempAudioSourceAndPlay(audioSource, destructionSound);
         }
 
         Destroy(gameObject);

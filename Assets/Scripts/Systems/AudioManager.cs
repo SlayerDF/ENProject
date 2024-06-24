@@ -1,12 +1,8 @@
 using Cysharp.Threading.Tasks;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
-using static AudioManager;
 
 public class AudioManager : MonoBehaviour
 {
@@ -24,7 +20,7 @@ public class AudioManager : MonoBehaviour
             return MemberwiseClone();
         }
 
-        internal void CopyToAudioSource(AudioSource source)
+        internal void ApplyToAudioSource(AudioSource source)
         {
             source.loop = loop;
         }
@@ -68,23 +64,28 @@ public class AudioManager : MonoBehaviour
     public void Play(string sourceName, string clipName, Action<AudioSourceConfig, AudioClip> configurator = null, bool interrupt = true)
     {
         var source = GetAudioSourceByName(sourceName);
-
-        if (!interrupt && source.isPlaying) return;
-
         var clip = GetAudioClipByName(clipName);
-
-        source.clip = clip;
-
         var config = (AudioSourceConfig)GetAudioSourceConfigByName(sourceName).Clone();
-        configurator?.Invoke(config, clip);
-        config.CopyToAudioSource(source);
 
-        source.Play();
+        configurator?.Invoke(config, clip);
+
+        Play(source, clip, config, interrupt);
     }
 
     public void Stop(string sourceName)
     {
         GetAudioSourceByName(sourceName).Stop();
+    }
+
+    public void SpawnTempAudioSourceAndPlay(string sourceName, string clipName, Action<AudioSourceConfig, AudioClip> configurator = null, bool destroy = true)
+    {
+        var source = GetAudioSourceByName(sourceName);
+        var clip = GetAudioClipByName(clipName);
+        var config = (AudioSourceConfig)GetAudioSourceConfigByName(sourceName).Clone();
+
+        configurator?.Invoke(config, clip);
+
+        SpawnTempAudioSourceAndPlay(source, clip, config, destroy);
     }
 
     public UniTask WaitAudioSourceToFinish(string sourceName, bool ignoreTimeScale = false)
@@ -118,13 +119,29 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public static void Play(AudioSource source, AudioClip clip, bool interrupt = true)
+    public static void Play(AudioSource source, AudioClip clip, AudioSourceConfig config = null, bool interrupt = true)
     {
         if (!interrupt && source.isPlaying) return;
 
         source.clip = clip;
 
+        config?.ApplyToAudioSource(source);
+
         source.Play();
+    }
+
+    public static AudioSource SpawnTempAudioSourceAndPlay(AudioSource source, AudioClip clip, AudioSourceConfig config = null, bool destroy = true)
+    {
+        var newGameObject = new GameObject("AudioTemp");
+        newGameObject.transform.position = source.transform.position;
+
+        var newSource = newGameObject.AddComponent<AudioSource>().GetCopyOf(source);
+
+        Play(newSource, clip, config);
+
+        if (destroy && !newSource.loop) Destroy(newGameObject, clip.length);
+
+        return newSource;
     }
 
     public static async UniTask WaitAudioSourceToFinish(AudioSource source, bool ignoreTimeScale = false)

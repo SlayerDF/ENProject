@@ -43,12 +43,12 @@ public class Explosion : MonoBehaviour
         else if (step == 1)
         {
             animator.SetTrigger("Cross");
-            audioManager.Play("Default", "Explosion");
+            audioManager.SpawnTempAudioSourceAndPlay("Default", "Explosion");
         }
         else if (step == radius)
         {
             animator.SetTrigger("End");
-            audioManager.Play("CloseProximity", "Fire");
+            audioManager.SpawnTempAudioSourceAndPlay("CloseProximity", "Fire");
         }
         else
         {
@@ -75,11 +75,9 @@ public class Explosion : MonoBehaviour
     }
 
 #pragma warning disable IDE0051 // Remove unused private members (because they are called from Animator events)
-    private async void OnAnimationEnded()
+    private void OnAnimationEnded()
     {
         damageCollider.enabled = false;
-
-        await audioManager.WaitToFinishAll();
 
         Destroy(gameObject);
     }
