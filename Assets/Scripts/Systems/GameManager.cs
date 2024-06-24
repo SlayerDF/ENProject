@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,9 @@ public class GameManager : MonoBehaviour
     private EndingUI endingUI;
 
     [SerializeField]
+    private AudioManager audioManager;
+
+    [SerializeField]
     private int playerDamagedPenalty = 50;
 
     private int score = 0;
@@ -26,6 +30,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         gameUI.UpdateScoreText(score, valueIncreased: true, skipAnimation: true);
+
+        audioManager.Play("Music", "LevelMusic");
     }
 
     private void Update()
@@ -47,9 +53,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1 - Time.timeScale;
     }
 
-    private IEnumerator EndGame()
+    private async UniTask EndGame()
     {
-        yield return new WaitForSeconds(1);
+        await UniTask.WaitForSeconds(1);
+
+        audioManager.Stop("Music");
 
         endGame = true;
         Time.timeScale = 0;
@@ -74,16 +82,16 @@ public class GameManager : MonoBehaviour
         ChangeScoreBy(-playerDamagedPenalty);
     }
 
-    public void EndGameWin()
+    public async UniTask EndGameWin()
     {
-        StartCoroutine(EndGame());
+        await EndGame();
 
         endingUI.ShowWinScreen(score);
     }
 
-    public void EndGameLose()
+    public async UniTask EndGameLose()
     {
-        StartCoroutine(EndGame());
+        await EndGame();
 
         endingUI.ShowLoseScreen();
     }

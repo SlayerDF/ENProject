@@ -104,6 +104,8 @@ public class EndingUI : MonoBehaviour
         subtitleText.text = $"{pointsText} {points}";
 
         ShowScreen();
+
+        audioManager.Play("Music", "Win");
     }
 
     public void ShowLoseScreen()
@@ -112,5 +114,7 @@ public class EndingUI : MonoBehaviour
         subtitleText.enabled = false;
 
         ShowScreen();
+
+        audioManager.Play("Music", "Lose");
     }
 }

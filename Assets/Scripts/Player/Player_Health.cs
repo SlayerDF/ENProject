@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -34,7 +35,7 @@ public partial class Player : MonoBehaviour
     private void OnDied(HealthSystem healthSystem)
     {
         Desactivate();
-        gameManager.EndGameLose();
+        gameManager.EndGameLose().Forget();
     }
 
     private void OnHealthValueChanged(HealthSystem healthSystem, int value)

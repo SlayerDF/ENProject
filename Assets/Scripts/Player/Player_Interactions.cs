@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,7 +46,7 @@ public partial class Player : MonoBehaviour
         if (exit.Opened)
         {
             Desactivate();
-            gameManager.EndGameWin();
+            gameManager.EndGameWin().Forget();
         }
         else if (hasShovel)
         {
