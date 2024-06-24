@@ -30,9 +30,13 @@ public partial class Player
 
     private void MovementFixedUpdate()
     { 
-        animator.SetBool("IsMoving", false);
+        if (moveDirection.x == 0 && moveDirection.y == 0)
+        {
+            animator.SetBool("IsMoving", false);
+            audioManager.Stop("Footsteps");
 
-        if (moveDirection.x == 0 && moveDirection.y == 0) return;
+            return;
+        }
 
         if (Vector2.Angle(lastMoveDirection, moveDirection) >= 90)
         {
@@ -40,6 +44,7 @@ public partial class Player
         }
 
         animator.SetBool("IsMoving", true);
+        audioManager.Play("Footsteps", "GrassStep", interrupt: false);
 
         rb2d.MovePosition(rb2d.position + movementSpeed * Time.fixedDeltaTime * moveDirection);
     }
