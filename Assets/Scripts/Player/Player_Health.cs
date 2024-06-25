@@ -45,7 +45,8 @@ public partial class Player : MonoBehaviour
         if (value < 0)
         {
             animator.SetTrigger("Damaged");
-            audioManager.Play("Health", "Damaged");
+
+            healthAudioSource.Play(damagedAudioClip);
 
             gameManager.ApplyPlayerDamagedPenalty();
         }
@@ -55,15 +56,17 @@ public partial class Player : MonoBehaviour
     {
         animator.SetBool("Invulnerable", true);
 
-        await audioManager.WaitAudioSourceToFinish("Health");
+        await healthAudioSource.WaitFinish();
 
-        audioManager.Play("Health", "Invulnerable", (source, _) => source.loop = true);
+        healthAudioSource.loop = true;
+        healthAudioSource.Play(invulnerableAudioClip);
     }
 
     private void OnInvulnerabilityDesactivated(HealthSystem _)
     {
         animator.SetBool("Invulnerable", false);
 
-        audioManager.Stop("Health");
+        healthAudioSource.loop = false;
+        healthAudioSource.Stop();
     }
 }

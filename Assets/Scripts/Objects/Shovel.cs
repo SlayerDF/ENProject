@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class Shovel : MonoBehaviour
 {
-    private AudioManager audioManager;
+    [Header("On destroy SFX")]
 
-    private void Awake()
-    {
-        audioManager = GetComponent<AudioManager>();
-    }
+    [SerializeField]
+    private AudioSource audioSource;
 
-    private void Start()
-    {
-        audioManager.Play("Default", "Loot");
-    }
+    [SerializeField]
+    private AudioClip audioClip;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,7 +20,8 @@ public class Shovel : MonoBehaviour
 
             player.AddShovel();
 
-            audioManager.SpawnTempAudioSourceAndPlay("Default", "Pickup");
+            audioSource.Play(audioClip);
+            audioSource.Detach();
 
             Destroy(gameObject);
         }

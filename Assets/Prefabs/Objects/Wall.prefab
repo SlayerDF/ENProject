@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6458118270387545618}
   - component: {fileID: 710900579341200654}
   - component: {fileID: 6643896547424755653}
-  - component: {fileID: 826489142868272567}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Obstacle
@@ -33,7 +32,8 @@ Transform:
   m_LocalPosition: {x: -4.5, y: 0.5, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7428403972830723249}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3293168226383414969
@@ -136,10 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
-  BehavioursToDisable:
-  - {fileID: 6458118270387545618}
-  audioSource: {fileID: 826489142868272567}
-  destructionSound: {fileID: 8300000, guid: 3873d66540c36934eb70094aac10e5ee, type: 3}
+  audioSource: {fileID: 8081807005980397833}
+  audioClip: {fileID: 8300000, guid: 3873d66540c36934eb70094aac10e5ee, type: 3}
 --- !u!114 &6643896547424755653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,13 +151,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootItems: []
---- !u!82 &826489142868272567
+--- !u!1 &6454798390179604133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7428403972830723249}
+  - component: {fileID: 8081807005980397833}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7428403972830723249
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6454798390179604133}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 27436760795753611}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &8081807005980397833
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1588522289636512341}
+  m_GameObject: {fileID: 6454798390179604133}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 4256644739961596733, guid: 2eb35ca10a46c7249b0f2fdc7302969f, type: 2}

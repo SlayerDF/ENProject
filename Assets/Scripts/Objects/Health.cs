@@ -7,17 +7,13 @@ public class Health : MonoBehaviour
     [SerializeField]
     private int healthToRecover = 1;
 
-    private AudioManager audioManager;
+    [Header("On destroy SFX")]
 
-    private void Awake()
-    {
-        audioManager = GetComponent<AudioManager>();
-    }
+    [SerializeField]
+    private AudioSource audioSource;
 
-    private void Start()
-    {
-        audioManager.Play("Default", "Loot");
-    }
+    [SerializeField]
+    private AudioClip audioClip;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -27,7 +23,8 @@ public class Health : MonoBehaviour
 
             player.Heal(healthToRecover);
 
-            audioManager.SpawnTempAudioSourceAndPlay("Default", "Eat");
+            audioSource.Play(audioClip);
+            audioSource.Detach();
 
             Destroy(gameObject);
         }

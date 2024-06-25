@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4778927139097446124
+--- !u!1 &3991849940402207799
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,68 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2207931787311927113}
-  - component: {fileID: 5901088717903794994}
-  - component: {fileID: 2453819804323059284}
-  - component: {fileID: 7394993971606729554}
+  - component: {fileID: 7382897770650513994}
+  - component: {fileID: 4761260963247866617}
   m_Layer: 0
-  m_Name: EnemyAudio
+  m_Name: Default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2207931787311927113
+--- !u!4 &7382897770650513994
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4778927139097446124}
+  m_GameObject: {fileID: 3991849940402207799}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2207931787311927113}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5901088717903794994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4778927139097446124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e133cc76423f3b419a302a40ca647a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSourceStructs:
-  - name: Default
-    audioSource: {fileID: 2453819804323059284}
-  - name: Footsteps
-    audioSource: {fileID: 7394993971606729554}
-  audioClipStructs:
-  - name: GrassStep
-    audioClip: {fileID: 8300000, guid: 18574fc8d96073149a60e0ba454cd513, type: 3}
-  - name: Ambient1
-    audioClip: {fileID: 8300000, guid: efe6f7a5f931ac94d8208efc9e676e78, type: 3}
-  - name: Ambient2
-    audioClip: {fileID: 8300000, guid: 3e0c08be8c0b8cf4c9c2c703b3010b31, type: 3}
-  - name: Death
-    audioClip: {fileID: 8300000, guid: 84035c5fcc03dde4ca71d981218e0e4b, type: 3}
---- !u!82 &2453819804323059284
+--- !u!82 &4761260963247866617
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4778927139097446124}
+  m_GameObject: {fileID: 3991849940402207799}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4153618725219802951, guid: 2eb35ca10a46c7249b0f2fdc7302969f, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -156,17 +128,49 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &7394993971606729554
+--- !u!1 &4178320961327185271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6112876064565093672}
+  - component: {fileID: 1494208599606801015}
+  m_Layer: 0
+  m_Name: Footsteps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6112876064565093672
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4178320961327185271}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2207931787311927113}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1494208599606801015
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4778927139097446124}
+  m_GameObject: {fileID: 4178320961327185271}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 5658036562360952875, guid: 2eb35ca10a46c7249b0f2fdc7302969f, type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 18574fc8d96073149a60e0ba454cd513, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -252,3 +256,55 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &4778927139097446124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2207931787311927113}
+  - component: {fileID: 8110911941775140100}
+  m_Layer: 0
+  m_Name: EnemyAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2207931787311927113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4778927139097446124}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7382897770650513994}
+  - {fileID: 6112876064565093672}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8110911941775140100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4778927139097446124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d169fcf5b3a79a4479d72b937d96e6b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSystem: {fileID: 0}
+  audioSource: {fileID: 4761260963247866617}
+  ambientClips:
+  - {fileID: 8300000, guid: efe6f7a5f931ac94d8208efc9e676e78, type: 3}
+  - {fileID: 8300000, guid: 3e0c08be8c0b8cf4c9c2c703b3010b31, type: 3}
+  onDiedClip: {fileID: 8300000, guid: 84035c5fcc03dde4ca71d981218e0e4b, type: 3}

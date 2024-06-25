@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class DestructibleObject : HealthSystem
 {
+    [Header("Destruction sound")]
+
     [SerializeField]
     private AudioSource audioSource;
 
     [SerializeField]
-    private AudioClip destructionSound;
+    private AudioClip audioClip;
 
     private DropLootSystem lootSystem;
 
@@ -31,9 +33,10 @@ public class DestructibleObject : HealthSystem
             lootSystem.DropLoot();
         }
 
-        if (destructionSound != null && audioSource != null)
+        if (audioSource != null && audioClip != null)
         {
-            AudioManager.SpawnTempAudioSourceAndPlay(audioSource, destructionSound);
+            audioSource.Play(audioClip);
+            audioSource.Detach();
         }
 
         Destroy(gameObject);

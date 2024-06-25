@@ -26,12 +26,9 @@ public partial class Player : MonoBehaviour
 
     private Animator animator;
 
-    private AudioManager audioManager;
-
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        audioManager = GetComponent<AudioManager>();
 
         if (testMode)
         {

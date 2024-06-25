@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Menus")]
+
     [SerializeField]
     private KeyCode showMainMenuKeyCode;
 
@@ -17,8 +19,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private EndingUI endingUI;
 
+    [Header("Music")]
+
     [SerializeField]
-    private AudioManager audioManager;
+    private AudioSource audioSource;
+
+    [Header("Settings")]
 
     [SerializeField]
     private int playerDamagedPenalty = 50;
@@ -31,7 +37,7 @@ public class GameManager : MonoBehaviour
     {
         gameUI.UpdateScoreText(score, valueIncreased: true, skipAnimation: true);
 
-        audioManager.Play("Music", "LevelMusic");
+        audioSource.Play();
     }
 
     private void Update()
@@ -57,7 +63,7 @@ public class GameManager : MonoBehaviour
     {
         await UniTask.WaitForSeconds(1);
 
-        audioManager.Stop("Music");
+        audioSource.Stop();
 
         endGame = true;
         Time.timeScale = 0;

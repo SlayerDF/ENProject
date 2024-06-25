@@ -10,6 +10,8 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    [Header("UI elements")]
+
     // Main menu
     [SerializeField]
     private GameObject mainMenuPanel;
@@ -55,10 +57,18 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private HoverableButton controlsBackButton;
 
-    // Other
+    // Sounds
+
+    [Header("Sounds")]
 
     [SerializeField]
-    private AudioManager audioManager;
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private AudioClip buttonClickClip;
+
+    [SerializeField]
+    private AudioClip buttonHoverClip;
 
     // Variables
 
@@ -117,39 +127,39 @@ public class MainMenu : MonoBehaviour
 
     private void PlayClickSound()
     {
-        audioManager.Play("Default", "ButtonClick");
+        audioSource.Play(buttonClickClip);
     }
 
     private void PlayHoverSound()
     {
-        audioManager.Play("Default", "ButtonHover", interrupt: false);
+        audioSource.Play(buttonHoverClip);
     }
 
     // Switch scene methods
     private async void LoadLevelTestScene()
     {
-        await audioManager.WaitToFinishAll(ignoreTimeScale: true);
+        await audioSource.WaitFinish(ignoreTimeScale: true);
 
         SceneManager.LoadScene("LevelTest");
     }
 
     private async void LoadLevel1Scene()
     {
-        await audioManager.WaitToFinishAll(ignoreTimeScale: true);
+        await audioSource.WaitFinish(ignoreTimeScale: true);
 
         SceneManager.LoadScene("Level1");
     }
 
     private async void LoadMainMenuScene()
     {
-        await audioManager.WaitToFinishAll(ignoreTimeScale: true);
+        await audioSource.WaitFinish(ignoreTimeScale: true);
 
         SceneManager.LoadScene("MainMenu");
     }
 
     private async void ExitGame()
     {
-        await audioManager.WaitToFinishAll(ignoreTimeScale: true);
+        await audioSource.WaitFinish(ignoreTimeScale: true);
 
         #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;

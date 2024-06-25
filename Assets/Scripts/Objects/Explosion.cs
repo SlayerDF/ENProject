@@ -14,13 +14,17 @@ public class Explosion : MonoBehaviour
     private float animationSeconds = 1f;
 
     [SerializeField]
-    private GameObject fireSpriteGameobject;
+    private Transform fireSpriteTransform;
+
+    [SerializeField]
+    private AudioSource explosionAudio;
+
+    [SerializeField]
+    private AudioSource fireAudio;
 
     private Collider2D damageCollider;
 
     private Animator animator;
-
-    private AudioManager audioManager;
 
     private int step = 1;
     private bool stopSpreading = false;
@@ -29,7 +33,6 @@ public class Explosion : MonoBehaviour
     {
         damageCollider = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
-        audioManager = GetComponent<AudioManager>();
 
         animator.SetFloat("SpeedMultiplier", 1 / animationSeconds);
     }
@@ -43,12 +46,16 @@ public class Explosion : MonoBehaviour
         else if (step == 1)
         {
             animator.SetTrigger("Cross");
-            audioManager.SpawnTempAudioSourceAndPlay("Default", "Explosion");
+
+            explosionAudio.Play();
+            explosionAudio.Detach();
         }
         else if (step == radius)
         {
             animator.SetTrigger("End");
-            audioManager.SpawnTempAudioSourceAndPlay("CloseProximity", "Fire");
+
+            fireAudio.Play();
+            fireAudio.Detach();
         }
         else
         {
@@ -87,7 +94,7 @@ public class Explosion : MonoBehaviour
         for (int j = 0; j < 4; j++)
         {
             transform.Rotate(0, 0, 90);
-            fireSpriteGameobject.transform.Rotate(0, 0, -90);
+            fireSpriteTransform.Rotate(0, 0, -90);
             SpawnNextExplosion();
         }
     }

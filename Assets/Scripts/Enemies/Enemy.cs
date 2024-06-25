@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     protected GameManager gameManager;
 
     [SerializeField]
-    protected AudioManager audioManager;
+    protected EnemyAudio enemyAudio;
 
     [Header("Movement")]
 
@@ -69,8 +69,6 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         UpdateMoveDirection(Quaternion.Euler(0, 0, Random.Range(0, 4) * 90) * transform.right);
-
-        audioManager.Play("Footsteps", "GrassStep");
     }
 
     private void Update()
@@ -81,8 +79,7 @@ public class Enemy : MonoBehaviour
 
             Debug.Log($"{gameObject.name} rotates");
 
-            if (Random.value >= 0.5) audioManager.Play("Default", "Ambient1");
-            else audioManager.Play("Default", "Ambient2");
+            enemyAudio.PlayRandomAmbient();
         }
     }
 
@@ -101,8 +98,6 @@ public class Enemy : MonoBehaviour
     {
         dropLootSystem.DropLoot();
         gameManager.ChangeScoreBy(killScore);
-
-        audioManager.SpawnTempAudioSourceAndPlay("Default", "Death");
 
         Destroy(gameObject);
 

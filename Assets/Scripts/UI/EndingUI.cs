@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,6 +9,8 @@ using UnityEngine.UI;
 
 public class EndingUI : MonoBehaviour
 {
+    [Header("UI elements")]
+
     [SerializeField]
     private HoverableButton restartLevelButton;
 
@@ -29,8 +32,25 @@ public class EndingUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI subtitleText;
 
+    [Header("Sounds")]
+
     [SerializeField]
-    private AudioManager audioManager;
+    private AudioSource sfxAudioSource;
+
+    [SerializeField]
+    private AudioSource musicAudioSource;
+
+    [SerializeField]
+    private AudioClip buttonClickClip;
+
+    [SerializeField]
+    private AudioClip buttonHoverClip;
+
+    [SerializeField]
+    private AudioClip winMusicClip;
+
+    [SerializeField]
+    private AudioClip loseMusicClip;
 
     private Dictionary<HoverableButton, UnityAction> buttonActionMapping;
 
@@ -67,26 +87,26 @@ public class EndingUI : MonoBehaviour
 
     private void PlayClickSound()
     {
-        audioManager.Play("Default", "ButtonClick");
+        sfxAudioSource.Play(buttonClickClip);
     }
 
     private void PlayHoverSound()
     {
-        audioManager.Play("Default", "ButtonHover", interrupt: false);
+        if (!sfxAudioSource.isPlaying) sfxAudioSource.Play(buttonHoverClip);
     }
 
     // Scene switch methods
 
     private async void RestartLevel()
     {
-        await audioManager.WaitToFinishAll(ignoreTimeScale: true);
+        await sfxAudioSource.WaitFinish(ignoreTimeScale: true);
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private async void LoadMainMenu()
     {
-        await audioManager.WaitToFinishAll(ignoreTimeScale: true);
+        await sfxAudioSource.WaitFinish(ignoreTimeScale: true);
 
         SceneManager.LoadScene("MainMenu");
     }
@@ -105,7 +125,7 @@ public class EndingUI : MonoBehaviour
 
         ShowScreen();
 
-        audioManager.Play("Music", "Win");
+        musicAudioSource.Play(winMusicClip);
     }
 
     public void ShowLoseScreen()
@@ -115,6 +135,6 @@ public class EndingUI : MonoBehaviour
 
         ShowScreen();
 
-        audioManager.Play("Music", "Lose");
+        musicAudioSource.Play(loseMusicClip);
     }
 }

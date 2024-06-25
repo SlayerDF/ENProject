@@ -33,7 +33,7 @@ public partial class Player
         if (moveDirection.x == 0 && moveDirection.y == 0)
         {
             animator.SetBool("IsMoving", false);
-            audioManager.Stop("Footsteps");
+            footstepAudioSource.Stop();
 
             return;
         }
@@ -44,7 +44,7 @@ public partial class Player
         }
 
         animator.SetBool("IsMoving", true);
-        audioManager.Play("Footsteps", "GrassStep", interrupt: false);
+        if (!footstepAudioSource.isPlaying) footstepAudioSource.Play();
 
         rb2d.MovePosition(rb2d.position + movementSpeed * Time.fixedDeltaTime * moveDirection);
     }

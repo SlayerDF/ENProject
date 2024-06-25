@@ -225,6 +225,7 @@ MonoBehaviour:
   levelGrid: {fileID: 0}
   gameManager: {fileID: 0}
   audioManager: {fileID: 7298776380969453673}
+  enemyAudio: {fileID: 4909251174713114207}
   movementSpeed: 2.5
   randomRotationSeconds: 3
   sprite: {fileID: 8959145118840970481}
@@ -515,6 +516,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyAudio
       objectReference: {fileID: 0}
+    - target: {fileID: 8110911941775140100, guid: b5b4f2f2a5f650645b33e5122cd87e58, type: 3}
+      propertyPath: healthSystem
+      value: 
+      objectReference: {fileID: -6595994582450820657}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -525,6 +530,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2207931787311927113, guid: b5b4f2f2a5f650645b33e5122cd87e58, type: 3}
   m_PrefabInstance: {fileID: 3796137144893479771}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4909251174713114207 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8110911941775140100, guid: b5b4f2f2a5f650645b33e5122cd87e58, type: 3}
+  m_PrefabInstance: {fileID: 3796137144893479771}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d169fcf5b3a79a4479d72b937d96e6b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7298776380969453673 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5901088717903794994, guid: b5b4f2f2a5f650645b33e5122cd87e58, type: 3}
